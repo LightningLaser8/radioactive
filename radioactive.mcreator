@@ -1,0 +1,1332 @@
+{
+  "mod_elements": [
+    {
+      "name": "AutoTagSystem",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "auto_tag_system",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/AutoTagSystemProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "tooltip",
+            "type": "tooltip"
+          }
+        ]
+      },
+      "path": "~/tooltips"
+    },
+    {
+      "name": "InventoryRadiation",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "inventory_radiation",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/InventoryRadiationProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/actual radiation"
+    },
+    {
+      "name": "ProximityRadiation",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "proximity_radiation",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/ProximityRadiationProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/actual radiation"
+    },
+    {
+      "name": "ProximityTagSystem",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "proximity_tag_system",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/ProximityTagSystemProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "tooltip",
+            "type": "tooltip"
+          }
+        ]
+      },
+      "path": "~/tooltips"
+    },
+    {
+      "name": "JoinMessage",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "join_message",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/JoinMessageProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BlockRadiation",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "block_radiation",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/BlockRadiationProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/actual radiation"
+    },
+    {
+      "name": "BlockTagSystem",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "block_tag_system",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/BlockTagSystemProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "tooltip",
+            "type": "tooltip"
+          }
+        ]
+      },
+      "path": "~/tooltips"
+    },
+    {
+      "name": "DetectorTagSystem",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "detector_tag_system",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/DetectorTagSystemProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "tooltip",
+            "type": "tooltip"
+          }
+        ]
+      },
+      "path": "~/tooltips"
+    },
+    {
+      "name": "CounterTagSystem",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "counter_tag_system",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/CounterTagSystemProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "tooltip",
+            "type": "tooltip"
+          }
+        ]
+      },
+      "path": "~/tooltips"
+    },
+    {
+      "name": "DetectorUse",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "detector_use",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/DetectorUseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/utility"
+    },
+    {
+      "name": "CounterUse",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "counter_use",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/CounterUseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/utility"
+    },
+    {
+      "name": "EntityRadiation",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "entity_radiation",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/EntityRadiationProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/actual radiation"
+    },
+    {
+      "name": "ArmorTagSystem",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "armor_tag_system",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/ArmorTagSystemProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "tooltip",
+            "type": "tooltip"
+          }
+        ]
+      },
+      "path": "~/tooltips"
+    },
+    {
+      "name": "ArmorReductionSystem",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "armor_reduction_system",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/ArmorReductionSystemProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/utility"
+    },
+    {
+      "name": "RadiationImmunity",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "radiation_immunity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/potion/RadiationImmunityMobEffect.java"
+        ]
+      },
+      "path": "~/radiation effects"
+    },
+    {
+      "name": "RadiationSickness",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "radiation_sickness",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/potion/RadiationSicknessMobEffect.java"
+        ]
+      },
+      "path": "~/radiation effects"
+    },
+    {
+      "name": "RadiationSicknessActiveTickCondition",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "radiation_sickness_active_tick_condition",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/RadiationSicknessActiveTickConditionProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "amplifier",
+            "type": "number"
+          }
+        ]
+      },
+      "path": "~/radiation effects"
+    },
+    {
+      "name": "RadiationSicknessOnEffectActiveTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "radiation_sickness_on_effect_active_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/RadiationSicknessOnEffectActiveTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "amplifier",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/radiation effects"
+    },
+    {
+      "name": "RadiationEffects",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "radiation_effects",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/RadiationEffectsProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/radiation effects"
+    },
+    {
+      "name": "WeaponRadiation",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "weapon_radiation",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/WeaponRadiationProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/actual radiation"
+    },
+    {
+      "name": "WeaponTagSystem",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "weapon_tag_system",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/WeaponTagSystemProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "tooltip",
+            "type": "tooltip"
+          }
+        ]
+      },
+      "path": "~/tooltips"
+    },
+    {
+      "name": "RadioactiveCFG",
+      "type": "config",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "radioactive_cfg",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/configuration/RadioactiveCFGConfiguration.java"
+        ]
+      },
+      "path": "~/config"
+    },
+    {
+      "name": "GlobalRadTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "global_rad_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/GlobalRadTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/actual radiation"
+    },
+    {
+      "name": "RadiationDT",
+      "type": "damagetype",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "radiation_dt",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/radioactive/damage_type/radiation_dt.json"
+        ]
+      },
+      "path": "~/radiation effects"
+    },
+    {
+      "name": "DamageTypeRadiation",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "damage_type_radiation",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/DamageTypeRadiationProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "damagesource",
+            "type": "damagesource"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "amount",
+            "type": "number"
+          }
+        ]
+      },
+      "path": "~/actual radiation"
+    },
+    {
+      "name": "InventoryTagSystem",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "inventory_tag_system",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/InventoryTagSystemProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "tooltip",
+            "type": "tooltip"
+          }
+        ]
+      },
+      "path": "~/tooltips"
+    },
+    {
+      "name": "Irradiate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "irradiate",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/IrradiateProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "amount",
+            "type": "number"
+          }
+        ]
+      },
+      "path": "~/actual radiation"
+    },
+    {
+      "name": "V3InventoryTagSystem",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "v_3_inventory_tag_system",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/V3InventoryTagSystemProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "tooltip",
+            "type": "tooltip"
+          }
+        ]
+      },
+      "path": "~/tooltips"
+    },
+    {
+      "name": "Test",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "test",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/item/TestItem.java",
+          "src/main/resources/assets/radioactive/models/item/test.json"
+        ]
+      }
+    },
+    {
+      "name": "Counter",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "counter",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/radioactive/models/item/counter.json",
+          "src/main/java/net/mcreator/radioactive/item/CounterItem.java"
+        ]
+      }
+    },
+    {
+      "name": "TestProt",
+      "type": "armor",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "test_prot",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/item/TestProtItem.java",
+          "src/main/resources/assets/radioactive/models/item/test_prot_helmet.json",
+          "src/main/resources/assets/radioactive/models/item/test_prot_leggings.json",
+          "src/main/resources/assets/radioactive/models/item/test_prot_boots.json",
+          "src/main/resources/assets/radioactive/models/item/test_prot_chestplate.json"
+        ]
+      }
+    },
+    {
+      "name": "TestBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "test_block",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/radioactive/models/item/test_block.json",
+          "src/main/resources/assets/radioactive/blockstates/test_block.json",
+          "src/main/resources/assets/radioactive/models/block/test_block.json",
+          "src/main/java/net/mcreator/radioactive/block/TestBlockBlock.java",
+          "src/main/resources/data/radioactive/loot_tables/blocks/test_block.json"
+        ]
+      }
+    },
+    {
+      "name": "V3ProximityTagSystem",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "v_3_proximity_tag_system",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/V3ProximityTagSystemProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "tooltip",
+            "type": "tooltip"
+          }
+        ]
+      },
+      "path": "~/tooltips"
+    },
+    {
+      "name": "V3BlockTagSystem",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "v_3_block_tag_system",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/V3BlockTagSystemProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "tooltip",
+            "type": "tooltip"
+          }
+        ]
+      },
+      "path": "~/tooltips"
+    },
+    {
+      "name": "V3ArmorTagSystem",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "v_3_armor_tag_system",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/V3ArmorTagSystemProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "tooltip",
+            "type": "tooltip"
+          }
+        ]
+      },
+      "path": "~/tooltips"
+    },
+    {
+      "name": "ValidateV3",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "validate_v_3",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/ValidateV3Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SilentValidateV3",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "silent_validate_v_3",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/SilentValidateV3Procedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "CheckValidation",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_validation",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/CheckValidationProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "ApplyBasicValidation",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "apply_basic_validation",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/ApplyBasicValidationProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RadioactiveClient",
+      "type": "config",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "radioactive_client",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/configuration/RadioactiveClientConfiguration.java"
+        ]
+      },
+      "path": "~/config"
+    },
+    {
+      "name": "HasEntityRadiationCounter",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "has_entity_radiation_counter",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/HasEntityRadiationCounterProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/utility"
+    },
+    {
+      "name": "RadiationBarDisplayOverlayIngame",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "radiation_bar_display_overlay_ingame",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/RadiationBarDisplayOverlayIngameProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/utility"
+    },
+    {
+      "name": "GetRadiationStage",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_radiation_stage",
+      "metadata": {
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/GetRadiationStageProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/utility"
+    },
+    {
+      "name": "RadiationBar",
+      "type": "overlay",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "radiation_bar",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/client/screens/RadiationBarOverlay.java"
+        ]
+      },
+      "path": "~/utility"
+    },
+    {
+      "name": "GetRadiationLevel",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_radiation_level",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/GetRadiationLevelProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/utility"
+    },
+    {
+      "name": "SyncRadiations",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sync_radiations",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/SyncRadiationsProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/utility"
+    },
+    {
+      "name": "Decontaminate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "decontaminate",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/DecontaminateProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "amount",
+            "type": "number"
+          }
+        ]
+      },
+      "path": "~/actual radiation"
+    },
+    {
+      "name": "ForceIrradiateOrDeconEntities",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "force_irradiate_or_decon_entities",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/ForceIrradiateOrDeconEntitiesProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ]
+      },
+      "path": "~/command"
+    },
+    {
+      "name": "ForceIrradiateEnemies",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "force_irradiate_enemies",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/ForceIrradiateEnemiesProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ]
+      },
+      "path": "~/command"
+    },
+    {
+      "name": "IrradiateCommand",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "irradiate_command",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/command/IrradiateCommandCommand.java"
+        ]
+      },
+      "path": "~/command"
+    },
+    {
+      "name": "ClearRadiation",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "clear_radiation",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/ClearRadiationProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/actual radiation"
+    },
+    {
+      "name": "ForceClearRadiation",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "force_clear_radiation",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/ForceClearRadiationProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ]
+      },
+      "path": "~/command"
+    },
+    {
+      "name": "IsItemCounter",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "is_item_counter",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/IsItemCounterProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "item",
+            "type": "itemstack"
+          }
+        ]
+      },
+      "path": "~/utility"
+    },
+    {
+      "name": "IsItemDetector",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "is_item_detector",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/IsItemDetectorProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "item",
+            "type": "itemstack"
+          }
+        ]
+      },
+      "path": "~/utility"
+    },
+    {
+      "name": "IsEntityRadImmune",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "is_entity_rad_immune",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/IsEntityRadImmuneProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/radiation effects"
+    },
+    {
+      "name": "BiomeRadiation",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "biome_radiation",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/BiomeRadiationProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/actual radiation"
+    },
+    {
+      "name": "TestBiome",
+      "type": "biome",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "test_biome",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/radioactive/worldgen/configured_feature/test_biome_tree.json",
+          "src/main/resources/data/radioactive/worldgen/biome/test_biome.json",
+          "src/main/resources/data/radioactive/worldgen/placed_feature/test_biome_tree.json"
+        ]
+      }
+    }
+  ],
+  "variable_elements": [
+    {
+      "name": "received_radiation",
+      "type": "number",
+      "scope": "player_lifetime",
+      "value": "0"
+    },
+    {
+      "name": "receiving_inv_rad",
+      "type": "number",
+      "scope": "player_lifetime",
+      "value": "0"
+    },
+    {
+      "name": "receiving_block_rad",
+      "type": "number",
+      "scope": "player_lifetime",
+      "value": "0"
+    },
+    {
+      "name": "radiation_resistance",
+      "type": "number",
+      "scope": "player_lifetime",
+      "value": "0"
+    },
+    {
+      "name": "rad_tick",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "errored",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "local_errored",
+      "type": "logic",
+      "scope": "global",
+      "value": "false"
+    },
+    {
+      "name": "v3_load_rad__inventory",
+      "type": "string",
+      "scope": "map",
+      "value": ""
+    }
+  ],
+  "sound_elements": [],
+  "tag_elements": {
+    "DAMAGE_TYPES:minecraft:bypasses_cooldown": [
+      "CUSTOM:RadiationDT"
+    ],
+    "DAMAGE_TYPES:minecraft:bypasses_invulnerability": [
+      "CUSTOM:RadiationDT"
+    ],
+    "DAMAGE_TYPES:minecraft:bypasses_effects": [
+      "CUSTOM:RadiationDT"
+    ]
+  },
+  "tab_element_order": {},
+  "language_map": {
+    "en_us": {
+      "item.radioactive.counter": "Test Counter",
+      "item.radioactive.test_prot_leggings": "Test Prot Leggings",
+      "item.radioactive.test_prot_helmet": "Test Prot Helmet",
+      "death.attack.radiation_dt": "%1$s died of radiation",
+      "effect.radioactive.radiation_sickness": "Radiation Sickness",
+      "item.radioactive.test": "Test Radioactive Item",
+      "effect.radioactive.radiation_immunity": "Radiation Immunity",
+      "block.radioactive.test_block.description_0": "§8§oIf this is radioactive, the mod\u0027s working!",
+      "biome.radioactive.test_biome": "Test Biome",
+      "item.radioactive.counter.description_0": "§8§oSee radiation levels!",
+      "death.attack.radiation.item": "$1$s died of radiation because of %2$s wielding $3$s",
+      "block.radioactive.test_block": "Test Block",
+      "item.radioactive.test.description_0": "§8§oIf this is radioactive, the mod\u0027s working!",
+      "death.attack.radiation_dt.player": "%1$s died of radiation whilst trying to escape %2$s",
+      "config.radioactive.radioactive_cfg": "radioactive",
+      "death.attack.radiation_dt.item": "%1$s died of radiation whilst trying to escape %2$s wielding %3$s",
+      "item.radioactive.test_prot_chestplate": "Test Prot Chestplate",
+      "item.radioactive.test_prot_boots": "Test Prot Boots",
+      "death.attack.radiation": "%1$s died of radiation",
+      "death.attack.radiation.player": "%1$s died of radiation because of %2$s"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": [
+      {
+        "name": "tooltips",
+        "children": []
+      },
+      {
+        "name": "actual radiation",
+        "children": []
+      },
+      {
+        "name": "config",
+        "children": []
+      },
+      {
+        "name": "radiation effects",
+        "children": []
+      },
+      {
+        "name": "utility",
+        "children": []
+      },
+      {
+        "name": "command",
+        "children": []
+      }
+    ]
+  },
+  "workspaceSettings": {
+    "modid": "radioactive",
+    "modName": "Radioactive",
+    "version": "3.4.0",
+    "description": "Easy-to-use unified radiation system which allows all mods and datapacks in a modpack to use the same system of radiation.",
+    "author": "LightningLaser8",
+    "websiteURL": "https://www.curseforge.com/minecraft/mc-mods/radioactive-ll8",
+    "license": "All Rights Reserved",
+    "serverSideOnly": false,
+    "modPicture": "radioactive_title",
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.20.1",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+    "modElementsPackage": "net.mcreator.radioactive"
+  },
+  "mcreatorVersion": 202400452410
+}

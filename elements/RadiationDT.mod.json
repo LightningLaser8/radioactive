@@ -1,0 +1,12 @@
+{
+  "_fv": 73,
+  "_type": "damagetype",
+  "definition": {
+    "exhaustion": 0.5,
+    "scaling": "never",
+    "effects": "hurt",
+    "normalDeathMessage": "%1$s died of radiation",
+    "itemDeathMessage": "%1$s died of radiation whilst trying to escape %2$s wielding %3$s",
+    "playerDeathMessage": "%1$s died of radiation whilst trying to escape %2$s"
+  }
+}

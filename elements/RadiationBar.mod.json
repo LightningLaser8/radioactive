@@ -1,0 +1,65 @@
+{
+  "_fv": 73,
+  "_type": "overlay",
+  "definition": {
+    "priority": "NORMAL",
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "radbar.png",
+          "use1Xscale": false,
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 1,
+          "y": 221,
+          "locked": false
+        }
+      },
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "radbar_progression.png",
+          "spritesCount": 90,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "GetRadiationStage"
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 1,
+          "y": 221,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_get_radiation_level",
+          "text": {
+            "fixedValue": "",
+            "name": "GetRadiationLevel"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "anchorPoint": "BOTTOM_LEFT",
+          "x": 3,
+          "y": 210,
+          "locked": false
+        }
+      }
+    ],
+    "baseTexture": "",
+    "overlayTarget": "Ingame",
+    "displayCondition": {
+      "name": "RadiationBarDisplayOverlayIngame"
+    },
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

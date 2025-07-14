@@ -1,0 +1,22 @@
+{
+  "item.radioactive.counter": "Test Counter",
+  "item.radioactive.test_prot_leggings": "Test Prot Leggings",
+  "item.radioactive.test_prot_helmet": "Test Prot Helmet",
+  "death.attack.radiation_dt": "%1$s died of radiation",
+  "effect.radioactive.radiation_sickness": "Radiation Sickness",
+  "item.radioactive.test": "Test Radioactive Item",
+  "effect.radioactive.radiation_immunity": "Radiation Immunity",
+  "block.radioactive.test_block.description_0": "§8§oIf this is radioactive, the mod\u0027s working!",
+  "biome.radioactive.test_biome": "Test Biome",
+  "item.radioactive.counter.description_0": "§8§oSee radiation levels!",
+  "death.attack.radiation.item": "$1$s died of radiation because of %2$s wielding $3$s",
+  "block.radioactive.test_block": "Test Block",
+  "item.radioactive.test.description_0": "§8§oIf this is radioactive, the mod\u0027s working!",
+  "death.attack.radiation_dt.player": "%1$s died of radiation whilst trying to escape %2$s",
+  "config.radioactive.radioactive_cfg": "radioactive",
+  "death.attack.radiation_dt.item": "%1$s died of radiation whilst trying to escape %2$s wielding %3$s",
+  "item.radioactive.test_prot_chestplate": "Test Prot Chestplate",
+  "item.radioactive.test_prot_boots": "Test Prot Boots",
+  "death.attack.radiation": "%1$s died of radiation",
+  "death.attack.radiation.player": "%1$s died of radiation because of %2$s"
+}

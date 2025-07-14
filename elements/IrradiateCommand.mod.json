@@ -1,0 +1,10 @@
+{
+  "_fv": 73,
+  "_type": "command",
+  "definition": {
+    "commandName": "irradiate",
+    "type": "STANDARD",
+    "permissionLevel": "2",
+    "argsxml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"args_start\" deletable=\"false\" x=\"40\" y=\"40\"><next><block type=\"entity\"><field name=\"name\">targets</field><field name=\"type\">entities</field><statement name=\"args\"><block type=\"number_min\"><field name=\"name\">amount</field><field name=\"min\">0</field><statement name=\"args\"><block type=\"logic\"><field name=\"name\">decon</field><statement name=\"args\"><block type=\"call_procedure\"><field name=\"procedure\">ForceIrradiateOrDeconEntities</field></block></statement><next><block type=\"call_procedure\"><field name=\"procedure\">ForceIrradiateEnemies</field></block></next></block></statement><next><block type=\"literal\"><field name=\"name\">clear</field><statement name=\"args\"><block type=\"call_procedure\"><field name=\"procedure\">ForceClearRadiation</field></block></statement></block></next></block></statement></block></next></block></xml>"
+  }
+}

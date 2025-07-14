@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "radioactive:block/test_block"
+    }
+  }
+}

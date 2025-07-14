@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "radioactive:block/radiation_test_block",
+    "up": "radioactive:block/radiation_test_block",
+    "north": "radioactive:block/radiation_test_block",
+    "east": "radioactive:block/radiation_test_block",
+    "south": "radioactive:block/radiation_test_block",
+    "west": "radioactive:block/radiation_test_block",
+    "particle": "radioactive:block/radiation_test_block"
+  },
+  "render_type": "solid"
+}
