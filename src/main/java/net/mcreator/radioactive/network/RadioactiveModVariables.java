@@ -79,6 +79,8 @@ public class RadioactiveModVariables {
 				clone.receiving_inv_rad = original.receiving_inv_rad;
 				clone.receiving_block_rad = original.receiving_block_rad;
 				clone.radiation_resistance = original.radiation_resistance;
+				clone.last_rad = original.last_rad;
+				clone.rads_per_sec = original.rads_per_sec;
 			}
 		}
 
@@ -257,6 +259,8 @@ public class RadioactiveModVariables {
 		public double receiving_inv_rad = 0;
 		public double receiving_block_rad = 0;
 		public double radiation_resistance = 0;
+		public double last_rad = 0;
+		public double rads_per_sec = 0;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)
@@ -269,6 +273,8 @@ public class RadioactiveModVariables {
 			nbt.putDouble("receiving_inv_rad", receiving_inv_rad);
 			nbt.putDouble("receiving_block_rad", receiving_block_rad);
 			nbt.putDouble("radiation_resistance", radiation_resistance);
+			nbt.putDouble("last_rad", last_rad);
+			nbt.putDouble("rads_per_sec", rads_per_sec);
 			return nbt;
 		}
 
@@ -278,6 +284,8 @@ public class RadioactiveModVariables {
 			receiving_inv_rad = nbt.getDouble("receiving_inv_rad");
 			receiving_block_rad = nbt.getDouble("receiving_block_rad");
 			radiation_resistance = nbt.getDouble("radiation_resistance");
+			last_rad = nbt.getDouble("last_rad");
+			rads_per_sec = nbt.getDouble("rads_per_sec");
 		}
 	}
 
@@ -306,6 +314,8 @@ public class RadioactiveModVariables {
 					variables.receiving_inv_rad = message.data.receiving_inv_rad;
 					variables.receiving_block_rad = message.data.receiving_block_rad;
 					variables.radiation_resistance = message.data.radiation_resistance;
+					variables.last_rad = message.data.last_rad;
+					variables.rads_per_sec = message.data.rads_per_sec;
 				}
 			});
 			context.setPacketHandled(true);

@@ -51,6 +51,7 @@ public class AutoTagSystemProcedure {
 					V3ProximityTagSystemProcedure.execute(itemstack, tooltip);
 					V3BlockTagSystemProcedure.execute(itemstack, tooltip);
 					V3ArmorTagSystemProcedure.execute(itemstack, tooltip);
+					V3CureTagSystemProcedure.execute(itemstack, tooltip);
 				}
 				DetectorTagSystemProcedure.execute(itemstack, tooltip);
 				CounterTagSystemProcedure.execute(itemstack, tooltip);

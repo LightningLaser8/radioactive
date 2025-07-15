@@ -1,0 +1,11 @@
+{
+  "geiger_click": {
+    "subtitle": "subtitles.geiger_click",
+    "sounds": [
+      {
+        "name": "radioactive:clicc",
+        "stream": false
+      }
+    ]
+  }
+}

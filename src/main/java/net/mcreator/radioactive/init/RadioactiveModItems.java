@@ -14,6 +14,8 @@ import net.minecraft.world.item.BlockItem;
 
 import net.mcreator.radioactive.item.TestProtItem;
 import net.mcreator.radioactive.item.TestItem;
+import net.mcreator.radioactive.item.TestCure2Item;
+import net.mcreator.radioactive.item.CureTestItem;
 import net.mcreator.radioactive.item.CounterItem;
 import net.mcreator.radioactive.RadioactiveMod;
 
@@ -26,6 +28,8 @@ public class RadioactiveModItems {
 	public static final RegistryObject<Item> TEST_PROT_LEGGINGS = REGISTRY.register("test_prot_leggings", () -> new TestProtItem.Leggings());
 	public static final RegistryObject<Item> TEST_PROT_BOOTS = REGISTRY.register("test_prot_boots", () -> new TestProtItem.Boots());
 	public static final RegistryObject<Item> TEST_BLOCK = block(RadioactiveModBlocks.TEST_BLOCK);
+	public static final RegistryObject<Item> TEST_CURE = REGISTRY.register("test_cure", () -> new CureTestItem());
+	public static final RegistryObject<Item> TEST_CURE_2 = REGISTRY.register("test_cure_2", () -> new TestCure2Item());
 
 	// Start of user code block custom items
 	// End of user code block custom items

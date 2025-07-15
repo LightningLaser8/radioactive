@@ -8,7 +8,6 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraft.world.level.LevelAccessor;
 
 import net.mcreator.radioactive.network.RadioactiveModVariables;
-import net.mcreator.radioactive.configuration.RadioactiveCFGConfiguration;
 
 import javax.annotation.Nullable;
 
@@ -26,14 +25,12 @@ public class GlobalRadTickProcedure {
 	}
 
 	private static void execute(@Nullable Event event, LevelAccessor world) {
-		if (RadioactiveCFGConfiguration.OLD_RADIATION.get()) {
-			if (RadioactiveModVariables.MapVariables.get(world).rad_tick < 21) {
-				RadioactiveModVariables.MapVariables.get(world).rad_tick = RadioactiveModVariables.MapVariables.get(world).rad_tick + 1;
-				RadioactiveModVariables.MapVariables.get(world).syncData(world);
-			} else {
-				RadioactiveModVariables.MapVariables.get(world).rad_tick = 0;
-				RadioactiveModVariables.MapVariables.get(world).syncData(world);
-			}
+		if (RadioactiveModVariables.MapVariables.get(world).rad_tick < 21) {
+			RadioactiveModVariables.MapVariables.get(world).rad_tick = RadioactiveModVariables.MapVariables.get(world).rad_tick + 1;
+			RadioactiveModVariables.MapVariables.get(world).syncData(world);
+		} else {
+			RadioactiveModVariables.MapVariables.get(world).rad_tick = 0;
+			RadioactiveModVariables.MapVariables.get(world).syncData(world);
 		}
 	}
 }

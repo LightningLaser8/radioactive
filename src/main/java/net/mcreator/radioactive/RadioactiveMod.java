@@ -17,6 +17,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
 
+import net.mcreator.radioactive.init.RadioactiveModSounds;
 import net.mcreator.radioactive.init.RadioactiveModMobEffects;
 import net.mcreator.radioactive.init.RadioactiveModItems;
 import net.mcreator.radioactive.init.RadioactiveModBlocks;
@@ -40,7 +41,7 @@ public class RadioactiveMod {
 		// End of user code block mod constructor
 		MinecraftForge.EVENT_BUS.register(this);
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-
+		RadioactiveModSounds.REGISTRY.register(bus);
 		RadioactiveModBlocks.REGISTRY.register(bus);
 
 		RadioactiveModItems.REGISTRY.register(bus);
