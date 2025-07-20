@@ -2,22 +2,22 @@
   "_fv": 73,
   "_type": "potioneffect",
   "definition": {
-    "effectName": "Radiation Sickness",
-    "icon": "radiation_sickness",
+    "effectName": "Radiation Cure",
+    "icon": "radiation_cure",
     "color": {
-      "value": -16711936,
+      "value": -3342592,
       "falpha": 0.0
     },
     "isInstant": false,
-    "mobEffectCategory": "HARMFUL",
+    "mobEffectCategory": "BENEFICIAL",
     "renderStatusInInventory": true,
     "renderStatusInHUD": true,
-    "isCuredByMilk": false,
+    "isCuredByMilk": true,
     "isProtectedByTotem": true,
     "isCuredbyHoney": false,
     "modifiers": [],
     "onActiveTick": {
-      "name": "RadiationSicknessOnEffectActiveTick"
+      "name": "RadiationCureOnEffectActiveTick"
     }
   }
 }

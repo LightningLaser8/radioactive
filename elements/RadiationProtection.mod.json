@@ -3,9 +3,9 @@
   "_type": "potioneffect",
   "definition": {
     "effectName": "Radiation Immunity",
-    "icon": "radiation_immunity",
+    "icon": "radiation_protection",
     "color": {
-      "value": -6750055,
+      "value": -10066330,
       "falpha": 0.0
     },
     "isInstant": false,

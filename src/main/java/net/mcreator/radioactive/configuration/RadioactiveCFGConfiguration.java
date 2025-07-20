@@ -33,6 +33,7 @@ public class RadioactiveCFGConfiguration {
 	public static final ForgeConfigSpec.ConfigValue<Boolean> V3_BIOME_RADIATION;
 	public static final ForgeConfigSpec.ConfigValue<List<? extends String>> V3_BIOME_RADIATION_DEFINITION;
 	public static final ForgeConfigSpec.ConfigValue<Boolean> V3_CURES;
+	public static final ForgeConfigSpec.ConfigValue<Boolean> SHUT_UP_CURES;
 	public static final ForgeConfigSpec.ConfigValue<List<? extends String>> V3_CURE_DEFINITION;
 	public static final ForgeConfigSpec.ConfigValue<List<? extends String>> V3_AUTO_CURE;
 	public static final ForgeConfigSpec.ConfigValue<List<? extends String>> V3_SPEED_CURE;
@@ -81,6 +82,7 @@ public class RadioactiveCFGConfiguration {
 		V3_BIOME_RADIATION = BUILDER.comment("Whether or not to allow biomes to irradiate entities in them.").define("Enable Biome Radiation", true);
 		V3_BIOME_RADIATION_DEFINITION = BUILDER.comment("A list of biome registry names to make radioactive, in the form id=amount per tick").defineList("Biome Radiation Definition", List.of("radioactive:test_biome=4"), entry -> true);
 		V3_CURES = BUILDER.comment("Whether or not to allow biomes to irradiate entities in them.").define("Enable Curative Items", true);
+		SHUT_UP_CURES = BUILDER.comment("If enabled, curative items won't make zombie cure noises when used.").define("Make Cures Shut Up", false);
 		V3_CURE_DEFINITION = BUILDER.comment("A list of item ids, with the amount of radiation they remove, in the form <item>=<absolute cure> or <item>=<percentage cure>%").defineList("Curative Item Definition",
 				List.of("radioactive:test_cure=400", "radioactive:test_cure_2=30%"), entry -> true);
 		V3_AUTO_CURE = BUILDER.comment("A list of cures which will use themselves up when their animation finishes.").defineList("Force-Depleting Cure List", List.of("radioactive:test_cure"), entry -> true);

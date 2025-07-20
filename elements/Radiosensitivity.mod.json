@@ -2,10 +2,10 @@
   "_fv": 73,
   "_type": "potioneffect",
   "definition": {
-    "effectName": "Radiation Sickness",
-    "icon": "radiation_sickness",
+    "effectName": "Radiosensitivity",
+    "icon": "radiosensitivity",
     "color": {
-      "value": -16711936,
+      "value": -65536,
       "falpha": 0.0
     },
     "isInstant": false,
@@ -15,9 +15,6 @@
     "isCuredByMilk": false,
     "isProtectedByTotem": true,
     "isCuredbyHoney": false,
-    "modifiers": [],
-    "onActiveTick": {
-      "name": "RadiationSicknessOnEffectActiveTick"
-    }
+    "modifiers": []
   }
 }

@@ -1350,6 +1350,64 @@
           "src/main/resources/assets/radioactive/models/item/test_cure_2.json"
         ]
       }
+    },
+    {
+      "name": "RadiationProtection",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "radiation_protection",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/potion/RadiationProtectionMobEffect.java"
+        ]
+      },
+      "path": "~/radiation effects"
+    },
+    {
+      "name": "RadiationCure",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "radiation_cure",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/potion/RadiationCureMobEffect.java"
+        ]
+      },
+      "path": "~/radiation effects"
+    },
+    {
+      "name": "RadiationCureOnEffectActiveTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "radiation_cure_on_effect_active_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/RadiationCureOnEffectActiveTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/radiation effects"
+    },
+    {
+      "name": "Radiosensitivity",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "radiosensitivity",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/potion/RadiosensitivityMobEffect.java"
+        ]
+      },
+      "path": "~/radiation effects"
     }
   ],
   "variable_elements": [
@@ -1453,8 +1511,11 @@
       "death.attack.radiation.player": "%1$s died of radiation because of %2$s",
       "item.radioactive.test_prot_helmet": "Test Prot Helmet",
       "item.radioactive.test_cure.description_0": "§8§oIf this cures radiation, the mod\u0027s working!",
+      "effect.radioactive.radiosensitivity": "Radiosensitivity",
       "effect.radioactive.radiation_sickness": "Radiation Sickness",
       "biome.radioactive.test_biome": "Test Biome",
+      "effect.radioactive.radiation_protection": "Radiation Immunity",
+      "effect.radioactive.radiation_cure": "Radiation Cure",
       "item.radioactive.counter.description_0": "§8§oSee radiation levels!",
       "block.radioactive.test_block": "Test Block",
       "death.attack.radiation_dt.player": "%1$s died of radiation whilst trying to escape %2$s",
@@ -1497,7 +1558,7 @@
   "workspaceSettings": {
     "modid": "radioactive",
     "modName": "Radioactive",
-    "version": "3.5.0",
+    "version": "3.6.0",
     "description": "Easy-to-use unified radiation system which allows all mods and datapacks in a modpack to use the same system of radiation.",
     "author": "LightningLaser8",
     "websiteURL": "https://www.curseforge.com/minecraft/mc-mods/radioactive-ll8",
