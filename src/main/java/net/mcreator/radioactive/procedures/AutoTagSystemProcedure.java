@@ -8,6 +8,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.Component;
 
 import net.mcreator.radioactive.network.RadioactiveModVariables;
@@ -23,21 +24,23 @@ public class AutoTagSystemProcedure {
 	@OnlyIn(Dist.CLIENT)
 	@SubscribeEvent
 	public static void onItemTooltip(ItemTooltipEvent event) {
-		execute(event, event.getItemStack(), event.getToolTip());
+		execute(event, event.getEntity(), event.getItemStack(), event.getToolTip());
 	}
 
-	public static void execute(ItemStack itemstack, List<Component> tooltip) {
-		execute(null, itemstack, tooltip);
+	public static void execute(Entity entity, ItemStack itemstack, List<Component> tooltip) {
+		execute(null, entity, itemstack, tooltip);
 	}
 
-	private static void execute(@Nullable Event event, ItemStack itemstack, List<Component> tooltip) {
-		if (tooltip == null)
+	private static void execute(@Nullable Event event, Entity entity, ItemStack itemstack, List<Component> tooltip) {
+		if (entity == null || tooltip == null)
 			return;
 		double total_radiation = 0;
 		double current_rad_id = 0;
+		Entity e = null;
 		if (RadioactiveModVariables.local_errored) {
 			tooltip.add(Component.literal("\u00A74Radioactive has errors"));
 		} else {
+			e = entity;
 			if (RadioactiveClientConfiguration.SHOW_TOOLTIPS.get()) {
 				if (RadioactiveCFGConfiguration.OLD_RADIATION.get()) {
 					InventoryTagSystemProcedure.execute(itemstack, tooltip);
@@ -45,16 +48,18 @@ public class AutoTagSystemProcedure {
 					BlockTagSystemProcedure.execute(itemstack, tooltip);
 					WeaponTagSystemProcedure.execute(itemstack, tooltip);
 					ArmorTagSystemProcedure.execute(itemstack, tooltip);
+					DetectorTagSystemProcedure.execute(itemstack, tooltip);
+					CounterTagSystemProcedure.execute(itemstack, tooltip);
 				}
 				if (RadioactiveCFGConfiguration.V3.get()) {
-					V3InventoryTagSystemProcedure.execute(itemstack, tooltip);
-					V3ProximityTagSystemProcedure.execute(itemstack, tooltip);
-					V3BlockTagSystemProcedure.execute(itemstack, tooltip);
-					V3ArmorTagSystemProcedure.execute(itemstack, tooltip);
-					V3CureTagSystemProcedure.execute(itemstack, tooltip);
+					V3InventoryTagSystemProcedure.execute(e.level(), itemstack, tooltip);
+					V3ProximityTagSystemProcedure.execute(e.level(), itemstack, tooltip);
+					V3BlockTagSystemProcedure.execute(e.level(), itemstack, tooltip);
+					V3ArmorTagSystemProcedure.execute(e.level(), itemstack, tooltip);
+					V3CureTagSystemProcedure.execute(e.level(), itemstack, tooltip);
+					V3DetectorTagSystemProcedure.execute(e.level(), itemstack, tooltip);
+					V3CounterTagSystemProcedure.execute(e.level(), itemstack, tooltip);
 				}
-				DetectorTagSystemProcedure.execute(itemstack, tooltip);
-				CounterTagSystemProcedure.execute(itemstack, tooltip);
 			}
 		}
 	}

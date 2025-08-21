@@ -22,7 +22,7 @@ public class HasEntityRadiationCounterProcedure {
 			if (_iitemhandlerref.get() != null) {
 				for (int _idx = 0; _idx < _iitemhandlerref.get().getSlots(); _idx++) {
 					ItemStack itemstackiterator = _iitemhandlerref.get().getStackInSlot(_idx).copy();
-					if (itemstackiterator.is(ItemTags.create(new ResourceLocation("forge:radiation_counters"))) || IsItemCounterProcedure.execute(itemstackiterator)) {
+					if (itemstackiterator.is(ItemTags.create(new ResourceLocation("forge:radiation_counters"))) || IsItemCounterProcedure.execute(world, itemstackiterator)) {
 						rv = true;
 						break;
 					}

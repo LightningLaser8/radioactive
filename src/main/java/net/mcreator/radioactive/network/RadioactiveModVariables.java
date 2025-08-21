@@ -144,7 +144,15 @@ public class RadioactiveModVariables {
 		public static final String DATA_NAME = "radioactive_mapvars";
 		public double rad_tick = 0;
 		public boolean errored = false;
-		public String v3_load_rad__inventory = "";
+		public CompoundTag v3_loaded__inv = new CompoundTag();
+		public CompoundTag v3_loaded__prox = new CompoundTag();
+		public CompoundTag v3_loaded__block = new CompoundTag();
+		public CompoundTag v3_loaded__entity = new CompoundTag();
+		public CompoundTag v3_loaded__biome = new CompoundTag();
+		public CompoundTag v3_loaded__prot = new CompoundTag();
+		public CompoundTag v3_loaded__cure = new CompoundTag();
+		public CompoundTag v3_loaded__count = new CompoundTag();
+		public CompoundTag v3_loaded__detec = new CompoundTag();
 
 		public static MapVariables load(CompoundTag tag) {
 			MapVariables data = new MapVariables();
@@ -155,14 +163,30 @@ public class RadioactiveModVariables {
 		public void read(CompoundTag nbt) {
 			rad_tick = nbt.getDouble("rad_tick");
 			errored = nbt.getBoolean("errored");
-			v3_load_rad__inventory = nbt.getString("v3_load_rad__inventory");
+			this.v3_loaded__inv = nbt.get("v3_loaded__inv") instanceof CompoundTag v3_loaded__inv ? v3_loaded__inv : new CompoundTag();
+			this.v3_loaded__prox = nbt.get("v3_loaded__prox") instanceof CompoundTag v3_loaded__prox ? v3_loaded__prox : new CompoundTag();
+			this.v3_loaded__block = nbt.get("v3_loaded__block") instanceof CompoundTag v3_loaded__block ? v3_loaded__block : new CompoundTag();
+			this.v3_loaded__entity = nbt.get("v3_loaded__entity") instanceof CompoundTag v3_loaded__entity ? v3_loaded__entity : new CompoundTag();
+			this.v3_loaded__biome = nbt.get("v3_loaded__biome") instanceof CompoundTag v3_loaded__biome ? v3_loaded__biome : new CompoundTag();
+			this.v3_loaded__prot = nbt.get("v3_loaded__prot") instanceof CompoundTag v3_loaded__prot ? v3_loaded__prot : new CompoundTag();
+			this.v3_loaded__cure = nbt.get("v3_loaded__cure") instanceof CompoundTag v3_loaded__cure ? v3_loaded__cure : new CompoundTag();
+			this.v3_loaded__count = nbt.get("v3_loaded__count") instanceof CompoundTag v3_loaded__count ? v3_loaded__count : new CompoundTag();
+			this.v3_loaded__detec = nbt.get("v3_loaded__detec") instanceof CompoundTag v3_loaded__detec ? v3_loaded__detec : new CompoundTag();
 		}
 
 		@Override
 		public CompoundTag save(CompoundTag nbt) {
 			nbt.putDouble("rad_tick", rad_tick);
 			nbt.putBoolean("errored", errored);
-			nbt.putString("v3_load_rad__inventory", v3_load_rad__inventory);
+			nbt.put("v3_loaded__inv", this.v3_loaded__inv);
+			nbt.put("v3_loaded__prox", this.v3_loaded__prox);
+			nbt.put("v3_loaded__block", this.v3_loaded__block);
+			nbt.put("v3_loaded__entity", this.v3_loaded__entity);
+			nbt.put("v3_loaded__biome", this.v3_loaded__biome);
+			nbt.put("v3_loaded__prot", this.v3_loaded__prot);
+			nbt.put("v3_loaded__cure", this.v3_loaded__cure);
+			nbt.put("v3_loaded__count", this.v3_loaded__count);
+			nbt.put("v3_loaded__detec", this.v3_loaded__detec);
 			return nbt;
 		}
 

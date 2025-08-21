@@ -34,8 +34,8 @@ public class CounterNoiseProcedure {
 		if (entity == null)
 			return;
 		if (world.isClientSide()) {
-			if (!RadioactiveClientConfiguration.SHUT_UP.get() && (entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RadioactiveModVariables.PlayerVariables())).rads_per_sec > 0
-					&& world.getLevelData().getGameTime() % Math.round(75000
+			if (RadiationBarDisplayOverlayIngameProcedure.execute(world, entity) && !RadioactiveClientConfiguration.SHUT_UP.get()
+					&& (entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RadioactiveModVariables.PlayerVariables())).rads_per_sec > 0 && world.getLevelData().getGameTime() % Math.round(75000
 							/ ((double) RadioactiveClientConfiguration.CLICK_RATE.get() * (entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RadioactiveModVariables.PlayerVariables())).rads_per_sec)) == 0) {
 				if (world instanceof Level _level) {
 					if (_level.isClientSide()) {

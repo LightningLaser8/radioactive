@@ -1,7 +1,5 @@
 package net.mcreator.radioactive.procedures;
 
-import org.checkerframework.checker.units.qual.s;
-
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.fml.common.Mod;
@@ -17,6 +15,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.nbt.DoubleTag;
+import net.minecraft.nbt.CompoundTag;
 
 import net.mcreator.radioactive.network.RadioactiveModVariables;
 import net.mcreator.radioactive.configuration.RadioactiveCFGConfiguration;
@@ -49,7 +49,7 @@ public class InventoryRadiationProcedure {
 					if (RadioactiveCFGConfiguration.OLD_RADIATION.get()) {
 						if (RadioactiveCFGConfiguration.INVENTORY_RADIATION.get()) {
 							if (entity instanceof Player) {
-								if (RadioactiveModVariables.MapVariables.get(world).rad_tick >= 20) {
+								if (RadioactiveModVariables.MapVariables.get(world).rad_tick == 1) {
 									total_radiation = 0;
 									current_rad_id = 0;
 									{
@@ -91,25 +91,16 @@ public class InventoryRadiationProcedure {
 									if (_iitemhandlerref.get() != null) {
 										for (int _idx = 0; _idx < _iitemhandlerref.get().getSlots(); _idx++) {
 											ItemStack itemstackiterator = _iitemhandlerref.get().getStackInSlot(_idx).copy();
-											for (String stringiterator : RadioactiveCFGConfiguration.V3_INVENTORY_RADIATION_DEFINITION.get()) {
-												id = stringiterator.substring(0, (int) stringiterator.indexOf("="));
-												amount = new Object() {
-													double convert(String s) {
-														try {
-															return Double.parseDouble(s.trim());
-														} catch (Exception e) {
-														}
-														return 0;
-													}
-												}.convert(stringiterator.substring((int) (stringiterator.indexOf("=") + 1)));
-												if ((id).equals(ForgeRegistries.ITEMS.getKey(itemstackiterator.getItem()).toString())) {
-													total_radiation = total_radiation + amount * itemstackiterator.getCount();
-												}
+											if (RadioactiveModVariables.MapVariables.get(world).v3_loaded__inv.contains((ForgeRegistries.ITEMS.getKey(itemstackiterator.getItem()).toString()))) {
+												IrradiateProcedure.execute(entity,
+														itemstackiterator.getCount()
+																* ((((RadioactiveModVariables.MapVariables.get(world).v3_loaded__inv.get((ForgeRegistries.ITEMS.getKey(itemstackiterator.getItem()).toString()))) instanceof CompoundTag _compoundTag
+																		? _compoundTag.copy()
+																		: new CompoundTag()).get("rads")) instanceof DoubleTag _doubleTag ? _doubleTag.getAsDouble() : 0.0D));
 											}
 										}
 									}
 								}
-								IrradiateProcedure.execute(entity, total_radiation);
 							}
 						}
 					}

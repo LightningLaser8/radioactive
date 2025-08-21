@@ -12,6 +12,10 @@
         ],
         "dependencies": [
           {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
             "name": "itemstack",
             "type": "itemstack"
           },
@@ -613,7 +617,8 @@
             "name": "amount",
             "type": "number"
           }
-        ]
+        ],
+        "return_type": "logic"
       },
       "path": "~/actual radiation"
     },
@@ -635,6 +640,10 @@
           {
             "name": "tooltip",
             "type": "tooltip"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -716,6 +725,10 @@
           {
             "name": "tooltip",
             "type": "tooltip"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -739,6 +752,10 @@
           {
             "name": "tooltip",
             "type": "tooltip"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -762,6 +779,10 @@
           {
             "name": "tooltip",
             "type": "tooltip"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -1099,6 +1120,10 @@
           {
             "name": "item",
             "type": "itemstack"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -1119,6 +1144,10 @@
           {
             "name": "item",
             "type": "itemstack"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -1160,15 +1189,7 @@
             "type": "entity"
           },
           {
-            "name": "x",
-            "type": "number"
-          },
-          {
             "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
             "type": "number"
           },
           {
@@ -1246,6 +1267,10 @@
           {
             "name": "tooltip",
             "type": "tooltip"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -1408,6 +1433,92 @@
         ]
       },
       "path": "~/radiation effects"
+    },
+    {
+      "name": "RadiationReduction",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "radiation_reduction",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/potion/RadiationReductionMobEffect.java"
+        ]
+      },
+      "path": "~/radiation effects"
+    },
+    {
+      "name": "LoadRadiationFromConfig",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "load_radiation_from_config",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/LoadRadiationFromConfigProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/config"
+    },
+    {
+      "name": "V3DetectorTagSystem",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "v_3_detector_tag_system",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/V3DetectorTagSystemProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "tooltip",
+            "type": "tooltip"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/tooltips"
+    },
+    {
+      "name": "V3CounterTagSystem",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "v_3_counter_tag_system",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/V3CounterTagSystemProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "tooltip",
+            "type": "tooltip"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/tooltips"
     }
   ],
   "variable_elements": [
@@ -1454,12 +1565,6 @@
       "value": "false"
     },
     {
-      "name": "v3_load_rad__inventory",
-      "type": "string",
-      "scope": "map",
-      "value": ""
-    },
-    {
       "name": "last_rad",
       "type": "number",
       "scope": "player_lifetime",
@@ -1470,6 +1575,60 @@
       "type": "number",
       "scope": "player_lifetime",
       "value": "0"
+    },
+    {
+      "name": "v3_loaded__inv",
+      "type": "datamap",
+      "scope": "map",
+      "value": "new CompoundTag()"
+    },
+    {
+      "name": "v3_loaded__prox",
+      "type": "datamap",
+      "scope": "map",
+      "value": "new CompoundTag()"
+    },
+    {
+      "name": "v3_loaded__block",
+      "type": "datamap",
+      "scope": "map",
+      "value": "new CompoundTag()"
+    },
+    {
+      "name": "v3_loaded__entity",
+      "type": "datamap",
+      "scope": "map",
+      "value": "new CompoundTag()"
+    },
+    {
+      "name": "v3_loaded__biome",
+      "type": "datamap",
+      "scope": "map",
+      "value": "new CompoundTag()"
+    },
+    {
+      "name": "v3_loaded__prot",
+      "type": "datamap",
+      "scope": "map",
+      "value": "new CompoundTag()"
+    },
+    {
+      "name": "v3_loaded__cure",
+      "type": "datamap",
+      "scope": "map",
+      "value": "new CompoundTag()"
+    },
+    {
+      "name": "v3_loaded__count",
+      "type": "datamap",
+      "scope": "map",
+      "value": "new CompoundTag()"
+    },
+    {
+      "name": "v3_loaded__detec",
+      "type": "datamap",
+      "scope": "map",
+      "value": "new CompoundTag()"
     }
   ],
   "sound_elements": [
@@ -1502,8 +1661,8 @@
       "death.attack.radiation_dt": "%1$s died of radiation",
       "item.radioactive.test_cure_2.description_0": "§8§oIf this cures radiation, the mod\u0027s working!",
       "item.radioactive.test": "Test Radioactive Item",
-      "block.radioactive.test_block.description_0": "§8§oIf this is radioactive, the mod\u0027s working!",
       "effect.radioactive.radiation_immunity": "Radiation Immunity",
+      "block.radioactive.test_block.description_0": "§8§oIf this is radioactive, the mod\u0027s working!",
       "death.attack.radiation.item": "$1$s died of radiation because of %2$s wielding $3$s",
       "item.radioactive.test.description_0": "§8§oIf this is radioactive, the mod\u0027s working!",
       "subtitles.geiger_click": "Counter clicks",
@@ -1512,9 +1671,10 @@
       "item.radioactive.test_prot_helmet": "Test Prot Helmet",
       "item.radioactive.test_cure.description_0": "§8§oIf this cures radiation, the mod\u0027s working!",
       "effect.radioactive.radiosensitivity": "Radiosensitivity",
+      "effect.radioactive.radiation_reduction": "Radiation Reduction",
       "effect.radioactive.radiation_sickness": "Radiation Sickness",
       "biome.radioactive.test_biome": "Test Biome",
-      "effect.radioactive.radiation_protection": "Radiation Immunity",
+      "effect.radioactive.radiation_protection": "Radiation Protection",
       "effect.radioactive.radiation_cure": "Radiation Cure",
       "item.radioactive.counter.description_0": "§8§oSee radiation levels!",
       "block.radioactive.test_block": "Test Block",
@@ -1558,7 +1718,7 @@
   "workspaceSettings": {
     "modid": "radioactive",
     "modName": "Radioactive",
-    "version": "3.6.0",
+    "version": "3.7.0",
     "description": "Easy-to-use unified radiation system which allows all mods and datapacks in a modpack to use the same system of radiation.",
     "author": "LightningLaser8",
     "websiteURL": "https://www.curseforge.com/minecraft/mc-mods/radioactive-ll8",

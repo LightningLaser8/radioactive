@@ -2,19 +2,14 @@ package net.mcreator.radioactive.procedures;
 
 import net.minecraftforge.registries.ForgeRegistries;
 
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.ItemStack;
 
-import net.mcreator.radioactive.configuration.RadioactiveCFGConfiguration;
+import net.mcreator.radioactive.network.RadioactiveModVariables;
 
 public class IsItemCounterProcedure {
-	public static boolean execute(ItemStack item) {
+	public static boolean execute(LevelAccessor world, ItemStack item) {
 		boolean retval = false;
-		for (String stringiterator : RadioactiveCFGConfiguration.V3_COUNTER_DEFINITION.get()) {
-			if ((stringiterator).equals(ForgeRegistries.ITEMS.getKey(item.getItem()).toString())) {
-				retval = true;
-				break;
-			}
-		}
-		return retval;
+		return RadioactiveModVariables.MapVariables.get(world).v3_loaded__count.contains((ForgeRegistries.ITEMS.getKey(item.getItem()).toString()));
 	}
 }

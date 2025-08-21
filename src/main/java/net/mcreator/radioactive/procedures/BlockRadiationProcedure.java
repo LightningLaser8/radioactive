@@ -42,9 +42,6 @@ public class BlockRadiationProcedure {
 		double current_rad_id = 0;
 		double current_range_id = 0;
 		double total_range = 0;
-		double sx = 0;
-		double sy = 0;
-		double sz = 0;
 		double all_radiation = 0;
 		double amount = 0;
 		String id = "";
@@ -94,7 +91,7 @@ public class BlockRadiationProcedure {
 					}
 					if (RadioactiveCFGConfiguration.OLD_RADIATION.get()) {
 						if (RadioactiveCFGConfiguration.BLOCK_RADIATION.get()) {
-							if (RadioactiveModVariables.MapVariables.get(world).rad_tick >= 20) {
+							if (RadioactiveModVariables.MapVariables.get(world).rad_tick == 1) {
 								entity.getPersistentData().putDouble("pitchOld", (entity.getXRot()));
 								entity.getPersistentData().putDouble("yawOld", (entity.getYRot()));
 								current_range_id = 16;

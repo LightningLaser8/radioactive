@@ -12,6 +12,7 @@ import net.minecraft.world.effect.MobEffect;
 
 import net.mcreator.radioactive.potion.RadiosensitivityMobEffect;
 import net.mcreator.radioactive.potion.RadiationSicknessMobEffect;
+import net.mcreator.radioactive.potion.RadiationReductionMobEffect;
 import net.mcreator.radioactive.potion.RadiationProtectionMobEffect;
 import net.mcreator.radioactive.potion.RadiationImmunityMobEffect;
 import net.mcreator.radioactive.potion.RadiationCureMobEffect;
@@ -24,4 +25,5 @@ public class RadioactiveModMobEffects {
 	public static final RegistryObject<MobEffect> RADIATION_PROTECTION = REGISTRY.register("radiation_protection", () -> new RadiationProtectionMobEffect());
 	public static final RegistryObject<MobEffect> RADIATION_CURE = REGISTRY.register("radiation_cure", () -> new RadiationCureMobEffect());
 	public static final RegistryObject<MobEffect> RADIOSENSITIVITY = REGISTRY.register("radiosensitivity", () -> new RadiosensitivityMobEffect());
+	public static final RegistryObject<MobEffect> RADIATION_REDUCTION = REGISTRY.register("radiation_reduction", () -> new RadiationReductionMobEffect());
 }

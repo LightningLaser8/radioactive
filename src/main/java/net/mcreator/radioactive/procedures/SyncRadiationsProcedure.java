@@ -39,7 +39,7 @@ public class SyncRadiationsProcedure {
 					});
 				}
 			}
-			if (RadioactiveModVariables.MapVariables.get(world).rad_tick == 20) {
+			if (RadioactiveModVariables.MapVariables.get(world).rad_tick == 1) {
 				{
 					double _setval = (entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RadioactiveModVariables.PlayerVariables())).received_radiation
 							- (entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RadioactiveModVariables.PlayerVariables())).last_rad;

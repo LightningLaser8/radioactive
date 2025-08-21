@@ -25,7 +25,7 @@ public class GlobalRadTickProcedure {
 	}
 
 	private static void execute(@Nullable Event event, LevelAccessor world) {
-		if (RadioactiveModVariables.MapVariables.get(world).rad_tick < 21) {
+		if (RadioactiveModVariables.MapVariables.get(world).rad_tick < 20) {
 			RadioactiveModVariables.MapVariables.get(world).rad_tick = RadioactiveModVariables.MapVariables.get(world).rad_tick + 1;
 			RadioactiveModVariables.MapVariables.get(world).syncData(world);
 		} else {

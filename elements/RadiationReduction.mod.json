@@ -2,10 +2,10 @@
   "_fv": 73,
   "_type": "potioneffect",
   "definition": {
-    "effectName": "Radiation Protection",
-    "icon": "radiation_protection",
+    "effectName": "Radiation Reduction",
+    "icon": "radiation_reduction",
     "color": {
-      "value": -10066330,
+      "value": -65383,
       "falpha": 0.0
     },
     "isInstant": false,

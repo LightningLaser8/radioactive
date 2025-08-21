@@ -42,7 +42,7 @@ public class EntityRadiationProcedure {
 		if (!world.isClientSide()) {
 			if (RadioactiveCFGConfiguration.OLD_RADIATION.get()) {
 				if (RadioactiveCFGConfiguration.ENTITY_RADIATION.get()) {
-					if (RadioactiveModVariables.MapVariables.get(world).rad_tick >= 20) {
+					if (RadioactiveModVariables.MapVariables.get(world).rad_tick == 1) {
 						total_radiation = 0;
 						current_rad_id = 0;
 						total_range = 0;
