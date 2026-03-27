@@ -37,6 +37,20 @@ import java.util.function.Supplier;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class RadioactiveModVariables {
 	public static boolean local_errored = false;
+	public static double client_radiation = 0;
+	public static double loaded__bar_width = 0;
+	public static double loaded__bar_height = 0;
+	public static double loaded__bar_x = 0;
+	public static double loaded__bar_y = 0;
+	public static boolean loaded__bar_enabled = false;
+	public static boolean loaded__shut_up_counters = false;
+	public static double loaded__click_rate = 0;
+	public static double loaded__click_pitch = 0;
+	public static boolean loaded__show_tooltips = false;
+	public static boolean loaded__radbar_bg = false;
+	public static String loaded__radbar_texture = "\"\"";
+	public static String loaded__radbar_bg_texture = "\"\"";
+	public static boolean client_show_bar = false;
 
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {
@@ -153,6 +167,26 @@ public class RadioactiveModVariables {
 		public CompoundTag v3_loaded__cure = new CompoundTag();
 		public CompoundTag v3_loaded__count = new CompoundTag();
 		public CompoundTag v3_loaded__detec = new CompoundTag();
+		public boolean loaded__old_sys = false;
+		public boolean loaded__opr = false;
+		public double loaded__radmult = 0;
+		public double loaded__deconmult = 0;
+		public double loaded__effectmult = 0;
+		public double loaded__sickmult = 0;
+		public boolean v3_loaded__enabled_inv = false;
+		public boolean v3_loaded__enabled_prox = false;
+		public boolean v3_loaded__enabled_block = false;
+		public boolean v3_loaded__enabled_biome = false;
+		public boolean v3_loaded__enabled_cure = false;
+		public boolean v3_loaded__shut_fuk = false;
+		public CompoundTag v3_loaded__radimmunity = new CompoundTag();
+		public double loaded__base_res = 0;
+		public double loaded__max_res = 0;
+		public double loaded__res_mult = 0;
+		public boolean loaded__resist_decon = false;
+		public boolean loaded__enable_rad_damage = false;
+		public boolean loaded__enable_unrad_damage = false;
+		public boolean v3_loaded__is_v3 = false;
 
 		public static MapVariables load(CompoundTag tag) {
 			MapVariables data = new MapVariables();
@@ -172,6 +206,26 @@ public class RadioactiveModVariables {
 			this.v3_loaded__cure = nbt.get("v3_loaded__cure") instanceof CompoundTag v3_loaded__cure ? v3_loaded__cure : new CompoundTag();
 			this.v3_loaded__count = nbt.get("v3_loaded__count") instanceof CompoundTag v3_loaded__count ? v3_loaded__count : new CompoundTag();
 			this.v3_loaded__detec = nbt.get("v3_loaded__detec") instanceof CompoundTag v3_loaded__detec ? v3_loaded__detec : new CompoundTag();
+			loaded__old_sys = nbt.getBoolean("loaded__old_sys");
+			loaded__opr = nbt.getBoolean("loaded__opr");
+			loaded__radmult = nbt.getDouble("loaded__radmult");
+			loaded__deconmult = nbt.getDouble("loaded__deconmult");
+			loaded__effectmult = nbt.getDouble("loaded__effectmult");
+			loaded__sickmult = nbt.getDouble("loaded__sickmult");
+			v3_loaded__enabled_inv = nbt.getBoolean("v3_loaded__enabled_inv");
+			v3_loaded__enabled_prox = nbt.getBoolean("v3_loaded__enabled_prox");
+			v3_loaded__enabled_block = nbt.getBoolean("v3_loaded__enabled_block");
+			v3_loaded__enabled_biome = nbt.getBoolean("v3_loaded__enabled_biome");
+			v3_loaded__enabled_cure = nbt.getBoolean("v3_loaded__enabled_cure");
+			v3_loaded__shut_fuk = nbt.getBoolean("v3_loaded__shut_fuk");
+			this.v3_loaded__radimmunity = nbt.get("v3_loaded__radimmunity") instanceof CompoundTag v3_loaded__radimmunity ? v3_loaded__radimmunity : new CompoundTag();
+			loaded__base_res = nbt.getDouble("loaded__base_res");
+			loaded__max_res = nbt.getDouble("loaded__max_res");
+			loaded__res_mult = nbt.getDouble("loaded__res_mult");
+			loaded__resist_decon = nbt.getBoolean("loaded__resist_decon");
+			loaded__enable_rad_damage = nbt.getBoolean("loaded__enable_rad_damage");
+			loaded__enable_unrad_damage = nbt.getBoolean("loaded__enable_unrad_damage");
+			v3_loaded__is_v3 = nbt.getBoolean("v3_loaded__is_v3");
 		}
 
 		@Override
@@ -187,6 +241,26 @@ public class RadioactiveModVariables {
 			nbt.put("v3_loaded__cure", this.v3_loaded__cure);
 			nbt.put("v3_loaded__count", this.v3_loaded__count);
 			nbt.put("v3_loaded__detec", this.v3_loaded__detec);
+			nbt.putBoolean("loaded__old_sys", loaded__old_sys);
+			nbt.putBoolean("loaded__opr", loaded__opr);
+			nbt.putDouble("loaded__radmult", loaded__radmult);
+			nbt.putDouble("loaded__deconmult", loaded__deconmult);
+			nbt.putDouble("loaded__effectmult", loaded__effectmult);
+			nbt.putDouble("loaded__sickmult", loaded__sickmult);
+			nbt.putBoolean("v3_loaded__enabled_inv", v3_loaded__enabled_inv);
+			nbt.putBoolean("v3_loaded__enabled_prox", v3_loaded__enabled_prox);
+			nbt.putBoolean("v3_loaded__enabled_block", v3_loaded__enabled_block);
+			nbt.putBoolean("v3_loaded__enabled_biome", v3_loaded__enabled_biome);
+			nbt.putBoolean("v3_loaded__enabled_cure", v3_loaded__enabled_cure);
+			nbt.putBoolean("v3_loaded__shut_fuk", v3_loaded__shut_fuk);
+			nbt.put("v3_loaded__radimmunity", this.v3_loaded__radimmunity);
+			nbt.putDouble("loaded__base_res", loaded__base_res);
+			nbt.putDouble("loaded__max_res", loaded__max_res);
+			nbt.putDouble("loaded__res_mult", loaded__res_mult);
+			nbt.putBoolean("loaded__resist_decon", loaded__resist_decon);
+			nbt.putBoolean("loaded__enable_rad_damage", loaded__enable_rad_damage);
+			nbt.putBoolean("loaded__enable_unrad_damage", loaded__enable_unrad_damage);
+			nbt.putBoolean("v3_loaded__is_v3", v3_loaded__is_v3);
 			return nbt;
 		}
 

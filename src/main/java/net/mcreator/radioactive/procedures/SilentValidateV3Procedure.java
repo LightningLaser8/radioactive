@@ -128,17 +128,43 @@ public class SilentValidateV3Procedure {
 				RadioactiveModVariables.local_errored = true;
 			}
 			if (!RadioactiveModVariables.local_errored) {
-				if (new Object() {
-					double convert(String s) {
-						try {
-							return Double.parseDouble(s.trim());
-						} catch (Exception e) {
+				if (stringiterator.contains("|")) {
+					if (new Object() {
+						double convert(String s) {
+							try {
+								return Double.parseDouble(s.trim());
+							} catch (Exception e) {
+							}
+							return 0;
 						}
-						return 0;
+					}.convert(stringiterator.substring((int) (stringiterator.indexOf("=") + 1), (int) stringiterator.indexOf("|"))) == 0) {
+						RadioactiveMod.LOGGER.error(("[v3_biome_radiation_definition] " + "Syntax Error: Radiation is not a number in \"" + stringiterator + "\""));
+						RadioactiveModVariables.local_errored = true;
+					} else if (new Object() {
+						double convert(String s) {
+							try {
+								return Double.parseDouble(s.trim());
+							} catch (Exception e) {
+							}
+							return 0;
+						}
+					}.convert(stringiterator.substring((int) (stringiterator.indexOf("|") + 1))) == 0) {
+						RadioactiveMod.LOGGER.error(("[v3_biome_radiation_definition] " + "Syntax Error: Minimum Y-Level is not a number in \"" + stringiterator + "\""));
+						RadioactiveModVariables.local_errored = true;
 					}
-				}.convert(stringiterator.substring((int) (stringiterator.indexOf("=") + 1))) == 0) {
-					RadioactiveMod.LOGGER.error(("[v3_biome_radiation_definition] " + "Syntax Error: Radiation is not a number in \"" + stringiterator + "\""));
-					RadioactiveModVariables.local_errored = true;
+				} else {
+					if (new Object() {
+						double convert(String s) {
+							try {
+								return Double.parseDouble(s.trim());
+							} catch (Exception e) {
+							}
+							return 0;
+						}
+					}.convert(stringiterator.substring((int) (stringiterator.indexOf("=") + 1))) == 0) {
+						RadioactiveMod.LOGGER.error(("[v3_biome_radiation_definition] " + "Syntax Error: Radiation is not a number in \"" + stringiterator + "\""));
+						RadioactiveModVariables.local_errored = true;
+					}
 				}
 			}
 		}

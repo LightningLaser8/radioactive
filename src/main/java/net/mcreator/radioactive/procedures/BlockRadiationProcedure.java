@@ -1,7 +1,5 @@
 package net.mcreator.radioactive.procedures;
 
-import org.checkerframework.checker.units.qual.s;
-
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -15,6 +13,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.nbt.DoubleTag;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.radioactive.network.RadioactiveModVariables;
@@ -36,7 +36,6 @@ public class BlockRadiationProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		BlockState block_chosen = Blocks.AIR.defaultBlockState();
 		boolean blocked = false;
 		double total_radiation = 0;
 		double current_rad_id = 0;
@@ -45,32 +44,17 @@ public class BlockRadiationProcedure {
 		double all_radiation = 0;
 		double amount = 0;
 		String id = "";
+		CompoundTag entry;
+		BlockState block_chosen = Blocks.AIR.defaultBlockState();
 		if (!world.isClientSide()) {
 			if (!RadioactiveModVariables.MapVariables.get(world).errored) {
-				if (entity instanceof Player || !RadioactiveCFGConfiguration.ONLY_PLAYER_RADIATION.get()) {
-					if (RadioactiveCFGConfiguration.V3.get()) {
-						if (RadioactiveCFGConfiguration.V3_BLOCK_RADIATION.get()) {
-							total_radiation = 0;
-							for (String stringiterator : RadioactiveCFGConfiguration.V3_BLOCK_RADIATION_DEFINITION.get()) {
-								id = stringiterator.substring(0, (int) stringiterator.indexOf("="));
-								amount = new Object() {
-									double convert(String s) {
-										try {
-											return Double.parseDouble(s.trim());
-										} catch (Exception e) {
-										}
-										return 0;
-									}
-								}.convert(stringiterator.substring((int) stringiterator.indexOf("=") + "=".length(), (int) stringiterator.indexOf("~")));
-								total_range = new Object() {
-									double convert(String s) {
-										try {
-											return Double.parseDouble(s.trim());
-										} catch (Exception e) {
-										}
-										return 0;
-									}
-								}.convert(stringiterator.substring((int) (stringiterator.indexOf("~") + 1))) + 1;
+				if (entity instanceof Player || !RadioactiveModVariables.MapVariables.get(world).loaded__opr) {
+					if (RadioactiveModVariables.MapVariables.get(world).v3_loaded__is_v3) {
+						if (RadioactiveModVariables.MapVariables.get(world).v3_loaded__enabled_block) {
+							for (String keyiterator : RadioactiveModVariables.MapVariables.get(world).v3_loaded__block.getAllKeys()) {
+								entry = (RadioactiveModVariables.MapVariables.get(world).v3_loaded__block.get(keyiterator)) instanceof CompoundTag _compoundTag ? _compoundTag.copy() : new CompoundTag();
+								amount = (entry.get("rads")) instanceof DoubleTag _doubleTag ? _doubleTag.getAsDouble() : 0.0D;
+								total_range = ((entry.get("range")) instanceof DoubleTag _doubleTag ? _doubleTag.getAsDouble() : 0.0D) + 1;
 								int horizontalRadiusSquare = (int) total_range - 1;
 								int verticalRadiusSquare = (int) total_range - 1;
 								int yIterationsSquare = verticalRadiusSquare;
@@ -78,18 +62,16 @@ public class BlockRadiationProcedure {
 									for (int xi = -horizontalRadiusSquare; xi <= horizontalRadiusSquare; xi++) {
 										for (int zi = -horizontalRadiusSquare; zi <= horizontalRadiusSquare; zi++) {
 											// Execute the desired statements within the square/cube
-											block_chosen = (world.getBlockState(BlockPos.containing(x + xi, y + i, z + zi)));
-											if ((id).equals(ForgeRegistries.BLOCKS.getKey(block_chosen.getBlock()).toString())) {
-												total_radiation = total_radiation + amount;
+											if ((ForgeRegistries.BLOCKS.getKey((world.getBlockState(BlockPos.containing(x + xi, y + i, z + zi))).getBlock()).toString()).equals(keyiterator)) {
+												IrradiateProcedure.execute(world, entity, amount);
 											}
 										}
 									}
 								}
 							}
-							IrradiateProcedure.execute(entity, total_radiation);
 						}
 					}
-					if (RadioactiveCFGConfiguration.OLD_RADIATION.get()) {
+					if (RadioactiveModVariables.MapVariables.get(world).loaded__old_sys) {
 						if (RadioactiveCFGConfiguration.BLOCK_RADIATION.get()) {
 							if (RadioactiveModVariables.MapVariables.get(world).rad_tick == 1) {
 								entity.getPersistentData().putDouble("pitchOld", (entity.getXRot()));
@@ -114,7 +96,7 @@ public class BlockRadiationProcedure {
 													}
 													current_rad_id = current_rad_id + 1;
 												}
-												IrradiateProcedure.execute(entity, total_radiation);
+												IrradiateProcedure.execute(world, entity, total_radiation);
 												all_radiation = all_radiation
 														+ total_radiation * (1 - (entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RadioactiveModVariables.PlayerVariables())).radiation_resistance);
 											}

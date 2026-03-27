@@ -1,13 +1,11 @@
 package net.mcreator.radioactive.procedures;
 
-import org.checkerframework.checker.units.qual.s;
-
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.event.entity.living.LivingEvent;
 
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.LivingEntity;
@@ -17,7 +15,6 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.resources.ResourceLocation;
 
 import net.mcreator.radioactive.network.RadioactiveModVariables;
-import net.mcreator.radioactive.configuration.RadioactiveCFGConfiguration;
 
 import javax.annotation.Nullable;
 
@@ -25,49 +22,29 @@ import javax.annotation.Nullable;
 public class ArmorReductionSystemProcedure {
 	@SubscribeEvent
 	public static void onEntityTick(LivingEvent.LivingTickEvent event) {
-		execute(event, event.getEntity());
+		execute(event, event.getEntity().level(), event.getEntity());
 	}
 
-	public static void execute(Entity entity) {
-		execute(null, entity);
+	public static void execute(LevelAccessor world, Entity entity) {
+		execute(null, world, entity);
 	}
 
-	private static void execute(@Nullable Event event, Entity entity) {
+	private static void execute(@Nullable Event event, LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
+		String id = "";
 		double total_radiation = 0;
 		double current_rad_id = 0;
 		double total_protect = 0;
 		double amount = 0;
-		String id = "";
 		if (entity instanceof LivingEntity) {
-			total_protect = Math.min(100, Math.max((double) RadioactiveCFGConfiguration.BASE_RESISTANCE.get(), 0));
-			if (RadioactiveCFGConfiguration.V3.get()) {
-				if (entity instanceof Player || !RadioactiveCFGConfiguration.ONLY_PLAYER_RADIATION.get()) {
-					for (String stringiterator : RadioactiveCFGConfiguration.V3_RADIATION_RESISTANCE_DEFINITION.get()) {
-						id = stringiterator.substring(0, (int) stringiterator.indexOf("="));
-						amount = new Object() {
-							double convert(String s) {
-								try {
-									return Double.parseDouble(s.trim());
-								} catch (Exception e) {
-								}
-								return 0;
-							}
-						}.convert(stringiterator.substring((int) (stringiterator.indexOf("=") + 1)));
-						if ((id).equals(ForgeRegistries.ITEMS.getKey((entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.FEET) : ItemStack.EMPTY).getItem()).toString())) {
-							total_protect = total_protect + amount;
-						}
-						if ((id).equals(ForgeRegistries.ITEMS.getKey((entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.LEGS) : ItemStack.EMPTY).getItem()).toString())) {
-							total_protect = total_protect + amount;
-						}
-						if ((id).equals(ForgeRegistries.ITEMS.getKey((entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.CHEST) : ItemStack.EMPTY).getItem()).toString())) {
-							total_protect = total_protect + amount;
-						}
-						if ((id).equals(ForgeRegistries.ITEMS.getKey((entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.HEAD) : ItemStack.EMPTY).getItem()).toString())) {
-							total_protect = total_protect + amount;
-						}
-					}
+			total_protect = Math.min(100, Math.max(RadioactiveModVariables.MapVariables.get(world).loaded__base_res, 0));
+			if (RadioactiveModVariables.MapVariables.get(world).v3_loaded__is_v3) {
+				if (entity instanceof Player || !RadioactiveModVariables.MapVariables.get(world).loaded__opr) {
+					total_protect = total_protect + GetRadiationProtectionOfProcedure.execute(world, entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.FEET) : ItemStack.EMPTY)
+							+ GetRadiationProtectionOfProcedure.execute(world, entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.LEGS) : ItemStack.EMPTY)
+							+ GetRadiationProtectionOfProcedure.execute(world, entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.CHEST) : ItemStack.EMPTY)
+							+ GetRadiationProtectionOfProcedure.execute(world, entity instanceof LivingEntity _entGetArmor ? _entGetArmor.getItemBySlot(EquipmentSlot.HEAD) : ItemStack.EMPTY);
 				}
 				total_protect = total_protect / 100;
 			} else {
@@ -129,8 +106,8 @@ public class ArmorReductionSystemProcedure {
 					}
 				}
 			}
-			total_protect = Math.min(1, Math.max(Math.min((double) RadioactiveCFGConfiguration.MAX_RESISTANCE.get() / 100, Math.max(total_protect * (double) RadioactiveCFGConfiguration.RESISTANCE_MULTIPLIER.get(), 0)), 0));
-			if (RadioactiveCFGConfiguration.OLD_RADIATION.get() || RadioactiveCFGConfiguration.ONLY_PLAYER_RADIATION.get()) {
+			total_protect = Math.min(1, Math.max(Math.min(RadioactiveModVariables.MapVariables.get(world).loaded__max_res / 100, Math.max(total_protect * RadioactiveModVariables.MapVariables.get(world).loaded__res_mult, 0)), 0));
+			if (RadioactiveModVariables.MapVariables.get(world).loaded__old_sys || RadioactiveModVariables.MapVariables.get(world).loaded__opr) {
 				{
 					double _setval = total_protect;
 					entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {

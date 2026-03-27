@@ -1,14 +1,35 @@
 package net.mcreator.radioactive.procedures;
 
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.event.TickEvent;
+
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Entity;
 
-import net.mcreator.radioactive.configuration.RadioactiveClientConfiguration;
+import net.mcreator.radioactive.network.RadioactiveModVariables;
 
+import javax.annotation.Nullable;
+
+@Mod.EventBusSubscriber
 public class RadiationBarDisplayOverlayIngameProcedure {
-	public static boolean execute(LevelAccessor world, Entity entity) {
+	@SubscribeEvent
+	public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
+		if (event.phase == TickEvent.Phase.END) {
+			execute(event, event.player.level(), event.player);
+		}
+	}
+
+	public static void execute(LevelAccessor world, Entity entity) {
+		execute(null, world, entity);
+	}
+
+	private static void execute(@Nullable Event event, LevelAccessor world, Entity entity) {
 		if (entity == null)
-			return false;
-		return RadioactiveClientConfiguration.SHOW_SCALE.get() && HasEntityRadiationCounterProcedure.execute(world, entity);
+			return;
+		if (world.isClientSide()) {
+			RadioactiveModVariables.client_show_bar = RadioactiveModVariables.loaded__bar_enabled && HasEntityRadiationCounterProcedure.execute(world, entity);
+		}
 	}
 }

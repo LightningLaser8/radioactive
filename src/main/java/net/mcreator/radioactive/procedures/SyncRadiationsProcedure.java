@@ -9,7 +9,6 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Entity;
 
 import net.mcreator.radioactive.network.RadioactiveModVariables;
-import net.mcreator.radioactive.configuration.RadioactiveCFGConfiguration;
 
 import javax.annotation.Nullable;
 
@@ -29,12 +28,21 @@ public class SyncRadiationsProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
-		if (!world.isClientSide()) {
-			if (!(RadioactiveCFGConfiguration.OLD_RADIATION.get() || RadioactiveCFGConfiguration.ONLY_PLAYER_RADIATION.get())) {
+		if (world.isClientSide()) {
+			RadioactiveModVariables.client_radiation = (entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RadioactiveModVariables.PlayerVariables())).received_radiation;
+		} else {
+			if (!(RadioactiveModVariables.MapVariables.get(world).loaded__old_sys || RadioactiveModVariables.MapVariables.get(world).loaded__opr)) {
 				{
 					double _setval = entity.getPersistentData().getDouble("radiation");
 					entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 						capability.received_radiation = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				{
+					double _setval = entity.getPersistentData().getDouble("rad_resistance");
+					entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.radiation_resistance = _setval;
 						capability.syncPlayerVariables(entity);
 					});
 				}

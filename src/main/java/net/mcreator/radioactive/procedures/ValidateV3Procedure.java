@@ -227,23 +227,62 @@ public class ValidateV3Procedure {
 				errors = errors + 1;
 			}
 			if (!RadioactiveModVariables.MapVariables.get(world).errored) {
-				if (new Object() {
-					double convert(String s) {
-						try {
-							return Double.parseDouble(s.trim());
-						} catch (Exception e) {
+				if (stringiterator.contains("|")) {
+					if (new Object() {
+						double convert(String s) {
+							try {
+								return Double.parseDouble(s.trim());
+							} catch (Exception e) {
+							}
+							return 0;
 						}
-						return 0;
+					}.convert(stringiterator.substring((int) (stringiterator.indexOf("=") + 1), (int) stringiterator.indexOf("|"))) == 0) {
+						if (entity instanceof Player _player && !_player.level().isClientSide())
+							_player.displayClientMessage(Component.literal("\u00A74Error in Biome Radiation Definitions"), false);
+						if (entity instanceof Player _player && !_player.level().isClientSide())
+							_player.displayClientMessage(Component.literal(("\u00A7cIn entry \"" + "" + stringiterator + "\"")), false);
+						if (entity instanceof Player _player && !_player.level().isClientSide())
+							_player.displayClientMessage(Component.literal("\u00A7cSyntax Error: Radiation is not a number, or is zero"), false);
+						RadioactiveModVariables.local_errored = true;
+						errors = errors + 1;
 					}
-				}.convert(stringiterator.substring((int) (stringiterator.indexOf("=") + 1))) == 0) {
-					if (entity instanceof Player _player && !_player.level().isClientSide())
-						_player.displayClientMessage(Component.literal("\u00A74Error in Biome Radiation Definitions"), false);
-					if (entity instanceof Player _player && !_player.level().isClientSide())
-						_player.displayClientMessage(Component.literal(("\u00A7cIn entry \"" + "" + stringiterator + "\"")), false);
-					if (entity instanceof Player _player && !_player.level().isClientSide())
-						_player.displayClientMessage(Component.literal("\u00A7cSyntax Error: Radiation is not a number, or is zero"), false);
-					RadioactiveModVariables.local_errored = true;
-					errors = errors + 1;
+					if (new Object() {
+						double convert(String s) {
+							try {
+								return Double.parseDouble(s.trim());
+							} catch (Exception e) {
+							}
+							return 0;
+						}
+					}.convert(stringiterator.substring((int) (stringiterator.indexOf("|") + 1))) == 0) {
+						if (entity instanceof Player _player && !_player.level().isClientSide())
+							_player.displayClientMessage(Component.literal("\u00A74Error in Biome Radiation Definitions"), false);
+						if (entity instanceof Player _player && !_player.level().isClientSide())
+							_player.displayClientMessage(Component.literal(("\u00A7cIn entry \"" + "" + stringiterator + "\"")), false);
+						if (entity instanceof Player _player && !_player.level().isClientSide())
+							_player.displayClientMessage(Component.literal("\u00A7cSyntax Error: Minimum Y-Level is not a number, or is zero"), false);
+						RadioactiveModVariables.local_errored = true;
+						errors = errors + 1;
+					}
+				} else {
+					if (new Object() {
+						double convert(String s) {
+							try {
+								return Double.parseDouble(s.trim());
+							} catch (Exception e) {
+							}
+							return 0;
+						}
+					}.convert(stringiterator.substring((int) (stringiterator.indexOf("=") + 1))) == 0) {
+						if (entity instanceof Player _player && !_player.level().isClientSide())
+							_player.displayClientMessage(Component.literal("\u00A74Error in Biome Radiation Definitions"), false);
+						if (entity instanceof Player _player && !_player.level().isClientSide())
+							_player.displayClientMessage(Component.literal(("\u00A7cIn entry \"" + "" + stringiterator + "\"")), false);
+						if (entity instanceof Player _player && !_player.level().isClientSide())
+							_player.displayClientMessage(Component.literal("\u00A7cSyntax Error: Radiation is not a number, or is zero"), false);
+						RadioactiveModVariables.local_errored = true;
+						errors = errors + 1;
+					}
 				}
 			}
 		}

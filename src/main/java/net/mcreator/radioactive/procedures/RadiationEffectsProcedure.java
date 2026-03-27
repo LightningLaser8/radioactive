@@ -21,7 +21,6 @@ import net.minecraft.client.Minecraft;
 
 import net.mcreator.radioactive.network.RadioactiveModVariables;
 import net.mcreator.radioactive.init.RadioactiveModMobEffects;
-import net.mcreator.radioactive.configuration.RadioactiveCFGConfiguration;
 
 import javax.annotation.Nullable;
 
@@ -42,10 +41,10 @@ public class RadiationEffectsProcedure {
 		double scale = 0;
 		double radiation = 0;
 		if (entity instanceof LivingEntity) {
-			if (entity instanceof Player || !RadioactiveCFGConfiguration.ONLY_PLAYER_RADIATION.get()) {
-				if (!IsEntityRadImmuneProcedure.execute(entity)) {
-					scale = (double) RadioactiveCFGConfiguration.RADIATION_POISONING_SCALING.get();
-					if (entity instanceof LivingEntity _livEnt4 && _livEnt4.hasEffect(RadioactiveModMobEffects.RADIOSENSITIVITY.get())) {
+			if (entity instanceof Player || !RadioactiveModVariables.MapVariables.get(world).loaded__opr) {
+				if (!IsEntityRadImmuneProcedure.execute(world, entity)) {
+					scale = RadioactiveModVariables.MapVariables.get(world).loaded__effectmult;
+					if (entity instanceof LivingEntity _livEnt2 && _livEnt2.hasEffect(RadioactiveModMobEffects.RADIOSENSITIVITY.get())) {
 						scale = scale / ((entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(RadioactiveModMobEffects.RADIOSENSITIVITY.get()) ? _livEnt.getEffect(RadioactiveModMobEffects.RADIOSENSITIVITY.get()).getAmplifier() : 0) + 2);
 					}
 					if (new Object() {
@@ -71,7 +70,7 @@ public class RadiationEffectsProcedure {
 					}.checkGamemode(entity)) {
 						radiation = 0;
 					} else {
-						radiation = RadioactiveCFGConfiguration.OLD_RADIATION.get() || RadioactiveCFGConfiguration.ONLY_PLAYER_RADIATION.get()
+						radiation = RadioactiveModVariables.MapVariables.get(world).loaded__old_sys || RadioactiveModVariables.MapVariables.get(world).loaded__opr
 								? (entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RadioactiveModVariables.PlayerVariables())).received_radiation
 								: entity.getPersistentData().getDouble("radiation");
 					}

@@ -12,6 +12,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.Component;
 
+import net.mcreator.radioactive.network.RadioactiveModVariables;
 import net.mcreator.radioactive.configuration.RadioactiveCFGConfiguration;
 
 import javax.annotation.Nullable;
@@ -52,7 +53,7 @@ public class JoinMessageProcedure {
 						return val;
 					}
 				}.getModInfo("radioactive", 0) + "\u00A7f loaded!")), false);
-			if (RadioactiveCFGConfiguration.OLD_RADIATION.get()) {
+			if (RadioactiveModVariables.MapVariables.get(world).loaded__old_sys) {
 				if (entity instanceof Player _player && !_player.level().isClientSide())
 					_player.displayClientMessage(Component.literal("\u00A7aUsing Old Radiation System"), false);
 				if (entity instanceof Player _player && !_player.level().isClientSide())
@@ -66,23 +67,23 @@ public class JoinMessageProcedure {
 			} else {
 				if (entity instanceof Player _player && !_player.level().isClientSide())
 					_player.displayClientMessage(Component.literal("\u00A7aUsing New Radiation System"), false);
-				if (RadioactiveCFGConfiguration.V3.get()) {
+				if (RadioactiveModVariables.MapVariables.get(world).v3_loaded__is_v3) {
 					if (entity instanceof Player _player && !_player.level().isClientSide())
 						_player.displayClientMessage(Component.literal("\u00A7eWith V3 Modpack configurator"), false);
 				}
 				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal(("Irradiation is " + (RadioactiveCFGConfiguration.IRRADIATION_DAMAGE.get() ? "Enabled" : "Disabled"))), false);
+					_player.displayClientMessage(Component.literal(("Irradiation is " + (RadioactiveModVariables.MapVariables.get(world).loaded__enable_rad_damage ? "Enabled" : "Disabled"))), false);
 				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal(("Decontamination is " + (RadioactiveCFGConfiguration.DECONTAMINATION_DAMAGE.get() ? "Enabled" : "Disabled"))), false);
-				if (RadioactiveCFGConfiguration.V3.get()) {
+					_player.displayClientMessage(Component.literal(("Decontamination is " + (RadioactiveModVariables.MapVariables.get(world).loaded__enable_unrad_damage ? "Enabled" : "Disabled"))), false);
+				if (RadioactiveModVariables.MapVariables.get(world).v3_loaded__is_v3) {
 					if (entity instanceof Player _player && !_player.level().isClientSide())
-						_player.displayClientMessage(Component.literal(("Inventory Radiation is " + (RadioactiveCFGConfiguration.V3_INVENTORY_RADIATION.get() ? "On" : "Off"))), false);
+						_player.displayClientMessage(Component.literal(("Inventory Radiation is " + (RadioactiveModVariables.MapVariables.get(world).v3_loaded__enabled_inv ? "On" : "Off"))), false);
 					if (entity instanceof Player _player && !_player.level().isClientSide())
-						_player.displayClientMessage(Component.literal(("Proximity Radiation is " + (RadioactiveCFGConfiguration.V3_PROXIMITY_RADIATION.get() ? "On" : "Off"))), false);
+						_player.displayClientMessage(Component.literal(("Proximity Radiation is " + (RadioactiveModVariables.MapVariables.get(world).v3_loaded__enabled_prox ? "On" : "Off"))), false);
 					if (entity instanceof Player _player && !_player.level().isClientSide())
-						_player.displayClientMessage(Component.literal(("Block Radiation is " + (RadioactiveCFGConfiguration.V3_BLOCK_RADIATION.get() ? "On" : "Off"))), false);
+						_player.displayClientMessage(Component.literal(("Block Radiation is " + (RadioactiveModVariables.MapVariables.get(world).v3_loaded__enabled_block ? "On" : "Off"))), false);
 					if (entity instanceof Player _player && !_player.level().isClientSide())
-						_player.displayClientMessage(Component.literal(("Biome Radiation is " + (RadioactiveCFGConfiguration.V3_BIOME_RADIATION.get() ? "On" : "Off"))), false);
+						_player.displayClientMessage(Component.literal(("Biome Radiation is " + (RadioactiveModVariables.MapVariables.get(world).v3_loaded__enabled_biome ? "On" : "Off"))), false);
 				}
 			}
 		}

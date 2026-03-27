@@ -81,12 +81,15 @@ public class RadioactiveCFGConfiguration {
 		V3_BLOCK_RADIATION_DEFINITION = BUILDER.comment("Like Proximity Radiation Definition, but for blocks.").defineList("Block Radiation Definition", List.of("radioactive:test_block=1~4"), entry -> true);
 		V3_BIOME_RADIATION = BUILDER.comment("Whether or not to allow biomes to irradiate entities in them.").define("Enable Biome Radiation", true);
 		V3_BIOME_RADIATION_DEFINITION = BUILDER.comment("A list of biome registry names to make radioactive, in the form id=amount per tick").defineList("Biome Radiation Definition", List.of("radioactive:test_biome=4"), entry -> true);
-		V3_CURES = BUILDER.comment("Whether or not to allow biomes to irradiate entities in them.").define("Enable Curative Items", true);
+		V3_CURES = BUILDER.comment("Allow some items to remove radiation from players that use them.").define("Enable Curative Items", true);
 		SHUT_UP_CURES = BUILDER.comment("If enabled, curative items won't make zombie cure noises when used.").define("Make Cures Shut Up", false);
-		V3_CURE_DEFINITION = BUILDER.comment("A list of item ids, with the amount of radiation they remove, in the form <item>=<absolute cure> or <item>=<percentage cure>%").defineList("Curative Item Definition",
-				List.of("radioactive:test_cure=400", "radioactive:test_cure_2=30%"), entry -> true);
-		V3_AUTO_CURE = BUILDER.comment("A list of cures which will use themselves up when their animation finishes.").defineList("Force-Depleting Cure List", List.of("radioactive:test_cure"), entry -> true);
-		V3_SPEED_CURE = BUILDER.comment("A list of cures which will have no animation, but are usable anyway.").defineList("Fast Cure List", List.of("radioactive:test_cure_2"), entry -> true);
+		V3_CURE_DEFINITION = BUILDER.comment("A list of item ids, with the amount of radiation they remove, in the form <item>=<absolute cure> or <item>=<percentage cure>%. Is affected by the \"Rad-Resistance Affects Decontamination\" option.")
+				.defineList("Curative Item Definition", List.of("radioactive:test_cure=400", "radioactive:test_cure_2=30%"), entry -> true);
+		V3_AUTO_CURE = BUILDER
+				.comment("A list of cures which will use themselves up when their animation finishes. Only the item id is needed, not the amount of radiation cured. These items must be defined in the \"Curative Item Definition\" first.")
+				.defineList("Force-Depleting Cure List", List.of("radioactive:test_cure"), entry -> true);
+		V3_SPEED_CURE = BUILDER.comment("A list of cures which will have no animation, but are usable anyway. The same rules as the \"Force-Depleting Cure List\" apply here.").defineList("Fast Cure List", List.of("radioactive:test_cure_2"),
+				entry -> true);
 		V3_RADIATION_RESISTANCE_DEFINITION = BUILDER.comment(
 				"Defines rad-resistance of armor items. Form: <mod>:<id>=<percentage>, e.g.  minecraft:iron_helmet=10 gives an iron helmet 10% rad-resistance, and bloons:bloon_lead_helmet=25 gives a Bloon Lead Helmet (from the Bloons Mod) 25% radiation resistance.")
 				.defineList("Radiation Resistance Definition", List.of("radioactive:test_prot_helmet=10", "radioactive:test_prot_chestplate=20", "radioactive:test_prot_leggings=15", "radioactive:test_prot_boots=10"), entry -> true);

@@ -5,6 +5,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
@@ -21,22 +22,22 @@ public class WeaponRadiationProcedure {
 	@SubscribeEvent
 	public static void onEntityAttacked(LivingHurtEvent event) {
 		if (event != null && event.getEntity() != null) {
-			execute(event, event.getEntity(), event.getSource().getEntity());
+			execute(event, event.getEntity().level(), event.getEntity(), event.getSource().getEntity());
 		}
 	}
 
-	public static void execute(Entity entity, Entity sourceentity) {
-		execute(null, entity, sourceentity);
+	public static void execute(LevelAccessor world, Entity entity, Entity sourceentity) {
+		execute(null, world, entity, sourceentity);
 	}
 
-	private static void execute(@Nullable Event event, Entity entity, Entity sourceentity) {
+	private static void execute(@Nullable Event event, LevelAccessor world, Entity entity, Entity sourceentity) {
 		if (entity == null || sourceentity == null)
 			return;
 		double total_radiation = 0;
 		double current_rad_id = 0;
 		double current_range_id = 0;
 		double total_range = 0;
-		if (RadioactiveCFGConfiguration.OLD_RADIATION.get()) {
+		if (RadioactiveModVariables.MapVariables.get(world).loaded__old_sys) {
 			if (RadioactiveCFGConfiguration.WEAPON_RADIATION.get()) {
 				total_radiation = 0;
 				current_rad_id = 0;

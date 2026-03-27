@@ -46,7 +46,7 @@ public class InventoryRadiationProcedure {
 		if (!world.isClientSide()) {
 			if (!RadioactiveModVariables.MapVariables.get(world).errored) {
 				if (entity instanceof LivingEntity) {
-					if (RadioactiveCFGConfiguration.OLD_RADIATION.get()) {
+					if (RadioactiveModVariables.MapVariables.get(world).loaded__old_sys) {
 						if (RadioactiveCFGConfiguration.INVENTORY_RADIATION.get()) {
 							if (entity instanceof Player) {
 								if (RadioactiveModVariables.MapVariables.get(world).rad_tick == 1) {
@@ -69,7 +69,7 @@ public class InventoryRadiationProcedure {
 											}
 										}
 									}
-									IrradiateProcedure.execute(entity, total_radiation);
+									IrradiateProcedure.execute(world, entity, total_radiation);
 									{
 										double _setval = total_radiation;
 										entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
@@ -81,9 +81,9 @@ public class InventoryRadiationProcedure {
 							}
 						}
 					}
-					if (RadioactiveCFGConfiguration.V3.get()) {
-						if (RadioactiveCFGConfiguration.V3_INVENTORY_RADIATION.get()) {
-							if (entity instanceof Player || !RadioactiveCFGConfiguration.ONLY_PLAYER_RADIATION.get()) {
+					if (RadioactiveModVariables.MapVariables.get(world).v3_loaded__is_v3) {
+						if (RadioactiveModVariables.MapVariables.get(world).v3_loaded__enabled_inv) {
+							if (entity instanceof Player || !RadioactiveModVariables.MapVariables.get(world).loaded__opr) {
 								total_radiation = 0;
 								{
 									AtomicReference<IItemHandler> _iitemhandlerref = new AtomicReference<>();
@@ -92,7 +92,7 @@ public class InventoryRadiationProcedure {
 										for (int _idx = 0; _idx < _iitemhandlerref.get().getSlots(); _idx++) {
 											ItemStack itemstackiterator = _iitemhandlerref.get().getStackInSlot(_idx).copy();
 											if (RadioactiveModVariables.MapVariables.get(world).v3_loaded__inv.contains((ForgeRegistries.ITEMS.getKey(itemstackiterator.getItem()).toString()))) {
-												IrradiateProcedure.execute(entity,
+												IrradiateProcedure.execute(world, entity,
 														itemstackiterator.getCount()
 																* ((((RadioactiveModVariables.MapVariables.get(world).v3_loaded__inv.get((ForgeRegistries.ITEMS.getKey(itemstackiterator.getItem()).toString()))) instanceof CompoundTag _compoundTag
 																		? _compoundTag.copy()

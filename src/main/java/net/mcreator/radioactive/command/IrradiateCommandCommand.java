@@ -39,7 +39,7 @@ public class IrradiateCommandCommand {
 					if (entity != null)
 						direction = entity.getDirection();
 
-					ForceIrradiateOrDeconEntitiesProcedure.execute(arguments);
+					ForceIrradiateOrDeconEntitiesProcedure.execute(world, arguments);
 					return 0;
 				})).executes(arguments -> {
 					Level world = arguments.getSource().getUnsidedLevel();
@@ -53,7 +53,7 @@ public class IrradiateCommandCommand {
 					if (entity != null)
 						direction = entity.getDirection();
 
-					ForceIrradiateEnemiesProcedure.execute(arguments);
+					ForceIrradiateEnemiesProcedure.execute(world, arguments);
 					return 0;
 				})).then(Commands.literal("clear").executes(arguments -> {
 					Level world = arguments.getSource().getUnsidedLevel();
@@ -67,7 +67,7 @@ public class IrradiateCommandCommand {
 					if (entity != null)
 						direction = entity.getDirection();
 
-					ForceClearRadiationProcedure.execute(arguments);
+					ForceClearRadiationProcedure.execute(world, arguments);
 					return 0;
 				}))));
 	}

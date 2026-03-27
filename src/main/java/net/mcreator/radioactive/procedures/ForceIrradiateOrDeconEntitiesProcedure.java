@@ -1,5 +1,6 @@
 package net.mcreator.radioactive.procedures;
 
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.commands.CommandSourceStack;
@@ -10,13 +11,13 @@ import com.mojang.brigadier.arguments.DoubleArgumentType;
 import com.mojang.brigadier.arguments.BoolArgumentType;
 
 public class ForceIrradiateOrDeconEntitiesProcedure {
-	public static void execute(CommandContext<CommandSourceStack> arguments) {
+	public static void execute(LevelAccessor world, CommandContext<CommandSourceStack> arguments) {
 		try {
 			for (Entity entityiterator : EntityArgument.getEntities(arguments, "targets")) {
 				if (BoolArgumentType.getBool(arguments, "decon")) {
-					DecontaminateProcedure.execute(entityiterator, DoubleArgumentType.getDouble(arguments, "amount"));
+					DecontaminateProcedure.execute(world, entityiterator, DoubleArgumentType.getDouble(arguments, "amount"));
 				} else {
-					IrradiateProcedure.execute(entityiterator, DoubleArgumentType.getDouble(arguments, "amount"));
+					IrradiateProcedure.execute(world, entityiterator, DoubleArgumentType.getDouble(arguments, "amount"));
 				}
 			}
 		} catch (CommandSyntaxException e) {

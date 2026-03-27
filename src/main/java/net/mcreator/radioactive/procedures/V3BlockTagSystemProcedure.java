@@ -9,7 +9,6 @@ import net.minecraft.nbt.DoubleTag;
 import net.minecraft.nbt.CompoundTag;
 
 import net.mcreator.radioactive.network.RadioactiveModVariables;
-import net.mcreator.radioactive.configuration.RadioactiveCFGConfiguration;
 
 import java.util.List;
 
@@ -21,7 +20,7 @@ public class V3BlockTagSystemProcedure {
 		double total_radiation = 0;
 		double amount = 0;
 		double range = 0;
-		if (RadioactiveCFGConfiguration.V3_BLOCK_RADIATION.get()) {
+		if (RadioactiveModVariables.MapVariables.get(world).v3_loaded__enabled_block) {
 			if (RadioactiveModVariables.MapVariables.get(world).v3_loaded__block.contains((ForgeRegistries.ITEMS.getKey(itemstack.getItem()).toString()))) {
 				total_radiation = (((RadioactiveModVariables.MapVariables.get(world).v3_loaded__block.get((ForgeRegistries.ITEMS.getKey(itemstack.getItem()).toString()))) instanceof CompoundTag _compoundTag ? _compoundTag.copy() : new CompoundTag())
 						.get("rads")) instanceof DoubleTag _doubleTag ? _doubleTag.getAsDouble() : 0.0D;

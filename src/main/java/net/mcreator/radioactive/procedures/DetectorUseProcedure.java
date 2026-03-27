@@ -15,7 +15,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 
 import net.mcreator.radioactive.network.RadioactiveModVariables;
-import net.mcreator.radioactive.configuration.RadioactiveCFGConfiguration;
 
 import javax.annotation.Nullable;
 
@@ -47,7 +46,7 @@ public class DetectorUseProcedure {
 			} else {
 				if (entity instanceof Player _player && !_player.level().isClientSide())
 					_player.displayClientMessage(Component.literal("\u00A7d[Radiation Detector]"), false);
-				if ((RadioactiveCFGConfiguration.OLD_RADIATION.get() || RadioactiveCFGConfiguration.ONLY_PLAYER_RADIATION.get()
+				if ((RadioactiveModVariables.MapVariables.get(world).loaded__opr || RadioactiveModVariables.MapVariables.get(world).loaded__old_sys
 						? (entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RadioactiveModVariables.PlayerVariables())).received_radiation
 						: entity.getPersistentData().getDouble("radiation")) > 0) {
 					if (entity instanceof Player _player && !_player.level().isClientSide())
@@ -56,7 +55,16 @@ public class DetectorUseProcedure {
 					if (entity instanceof Player _player && !_player.level().isClientSide())
 						_player.displayClientMessage(Component.literal("\u00A7e-> \u00A7aNot irradiated"), false);
 				}
-				if ((RadioactiveCFGConfiguration.OLD_RADIATION.get() || RadioactiveCFGConfiguration.ONLY_PLAYER_RADIATION.get()
+				if (!(RadioactiveModVariables.MapVariables.get(world).loaded__opr || RadioactiveModVariables.MapVariables.get(world).loaded__old_sys)) {
+					if ((entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RadioactiveModVariables.PlayerVariables())).rads_per_sec > 0) {
+						if (entity instanceof Player _player && !_player.level().isClientSide())
+							_player.displayClientMessage(Component.literal("\u00A7e-> \u00A7cBeing irradiated"), false);
+					} else {
+						if (entity instanceof Player _player && !_player.level().isClientSide())
+							_player.displayClientMessage(Component.literal("\u00A7e-> \u00A7aNot being irradiated"), false);
+					}
+				}
+				if ((RadioactiveModVariables.MapVariables.get(world).loaded__old_sys || RadioactiveModVariables.MapVariables.get(world).loaded__opr
 						? (entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RadioactiveModVariables.PlayerVariables())).radiation_resistance
 						: entity.getPersistentData().getDouble("rad_resistance")) > 0) {
 					if (entity instanceof Player _player && !_player.level().isClientSide())

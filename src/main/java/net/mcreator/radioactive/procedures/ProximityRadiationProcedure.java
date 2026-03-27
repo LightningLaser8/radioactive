@@ -50,8 +50,8 @@ public class ProximityRadiationProcedure {
 		double amount = 0;
 		String id = "";
 		if (!(RadioactiveModVariables.MapVariables.get(world).errored || world.isClientSide())) {
-			if (entity instanceof Player || !RadioactiveCFGConfiguration.ONLY_PLAYER_RADIATION.get()) {
-				if (RadioactiveCFGConfiguration.OLD_RADIATION.get()) {
+			if (entity instanceof Player || !RadioactiveModVariables.MapVariables.get(world).loaded__opr) {
+				if (RadioactiveModVariables.MapVariables.get(world).loaded__old_sys) {
 					if (RadioactiveCFGConfiguration.PROXIMITY_RADIATION.get()) {
 						if (RadioactiveModVariables.MapVariables.get(world).rad_tick == 1) {
 							total_radiation = 0;
@@ -88,7 +88,7 @@ public class ProximityRadiationProcedure {
 								for (Entity entityiterator : _entfound) {
 									if (entityiterator instanceof LivingEntity) {
 										if (!(entityiterator == entity)) {
-											IrradiateProcedure.execute(entityiterator, total_radiation);
+											IrradiateProcedure.execute(world, entityiterator, total_radiation);
 										}
 									}
 								}
@@ -97,8 +97,8 @@ public class ProximityRadiationProcedure {
 						}
 					}
 				}
-				if (RadioactiveCFGConfiguration.V3.get()) {
-					if (RadioactiveCFGConfiguration.V3_PROXIMITY_RADIATION.get()) {
+				if (RadioactiveModVariables.MapVariables.get(world).v3_loaded__is_v3) {
+					if (RadioactiveModVariables.MapVariables.get(world).v3_loaded__enabled_prox) {
 						{
 							AtomicReference<IItemHandler> _iitemhandlerref = new AtomicReference<>();
 							entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(_iitemhandlerref::set);
@@ -120,7 +120,7 @@ public class ProximityRadiationProcedure {
 											for (Entity entityiterator : _entfound) {
 												if (entityiterator instanceof LivingEntity) {
 													if (!(entityiterator == entity)) {
-														IrradiateProcedure.execute(entityiterator, total_radiation);
+														IrradiateProcedure.execute(world, entityiterator, total_radiation);
 													}
 												}
 											}

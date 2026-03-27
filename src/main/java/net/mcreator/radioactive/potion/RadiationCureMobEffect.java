@@ -14,7 +14,7 @@ public class RadiationCureMobEffect extends MobEffect {
 
 	@Override
 	public void applyEffectTick(LivingEntity entity, int amplifier) {
-		RadiationCureOnEffectActiveTickProcedure.execute(entity);
+		RadiationCureOnEffectActiveTickProcedure.execute(entity.level(), entity);
 	}
 
 	@Override

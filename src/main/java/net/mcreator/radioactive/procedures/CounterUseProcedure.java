@@ -15,7 +15,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 
 import net.mcreator.radioactive.network.RadioactiveModVariables;
-import net.mcreator.radioactive.configuration.RadioactiveCFGConfiguration;
 
 import javax.annotation.Nullable;
 
@@ -46,21 +45,23 @@ public class CounterUseProcedure {
 				if (entity instanceof Player _player && !_player.level().isClientSide())
 					_player.displayClientMessage(Component.literal("\u00A74Radioactive has errors"), false);
 			} else {
-				use_player_var = RadioactiveCFGConfiguration.OLD_RADIATION.get() || RadioactiveCFGConfiguration.ONLY_PLAYER_RADIATION.get();
+				use_player_var = RadioactiveModVariables.MapVariables.get(world).loaded__opr || RadioactiveModVariables.MapVariables.get(world).loaded__old_sys;
 				if (entity instanceof Player _player && !_player.level().isClientSide())
 					_player.displayClientMessage(Component.literal("\u00A76[Radiation Counter]"), false);
 				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal(("\u00A7e-> Irradiation: " + new java.text.DecimalFormat("####").format(use_player_var
-							? Math.round((entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RadioactiveModVariables.PlayerVariables())).received_radiation)
-							: Math.round(entity.getPersistentData().getDouble("radiation"))) + " RAD")), false);
+					_player.displayClientMessage(
+							Component.literal((" \u00A7e Irradiation: "
+									+ new java.text.DecimalFormat("####").format((entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RadioactiveModVariables.PlayerVariables())).received_radiation) + " RAD")),
+							false);
 				if (entity instanceof Player _player && !_player.level().isClientSide())
-					_player.displayClientMessage(Component.literal(("\u00A7b-> " + new java.text.DecimalFormat("####").format(Math.round((use_player_var
-							? (entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RadioactiveModVariables.PlayerVariables())).radiation_resistance
-							: entity.getPersistentData().getDouble("rad_resistance")) * 100)) + "% radiation resistance")), false);
-				if (RadioactiveCFGConfiguration.OLD_RADIATION.get()) {
-					if (entity instanceof Player _player && !_player.level().isClientSide())
-						_player.displayClientMessage(Component.literal("\u00A7cWarning: Proximity Radiation cannot be measured"), false);
-				}
+					_player.displayClientMessage(
+							Component.literal(("\u00A7e ( "
+									+ new java.text.DecimalFormat("####").format((entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RadioactiveModVariables.PlayerVariables())).rads_per_sec) + " RAD/s)")),
+							false);
+				if (entity instanceof Player _player && !_player.level().isClientSide())
+					_player.displayClientMessage(Component.literal((" \u00A7b "
+							+ new java.text.DecimalFormat("####").format(Math.round((entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RadioactiveModVariables.PlayerVariables())).radiation_resistance * 100))
+							+ "% radiation resistance")), false);
 				if (entity instanceof Player _player && !_player.level().isClientSide())
 					_player.displayClientMessage(Component.literal("\u00A76[-----------------]"), false);
 			}

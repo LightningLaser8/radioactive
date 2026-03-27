@@ -12,16 +12,16 @@
         ],
         "dependencies": [
           {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
             "name": "itemstack",
             "type": "itemstack"
           },
           {
             "name": "tooltip",
             "type": "tooltip"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -352,6 +352,10 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -402,6 +406,10 @@
           {
             "name": "amplifier",
             "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -475,6 +483,10 @@
           {
             "name": "sourceentity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -570,6 +582,10 @@
           {
             "name": "amount",
             "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -616,6 +632,10 @@
           {
             "name": "amount",
             "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ],
         "return_type": "logic"
@@ -900,7 +920,6 @@
       "locked_code": false,
       "registry_name": "radiation_bar_display_overlay_ingame",
       "metadata": {
-        "return_type": "logic",
         "files": [
           "src/main/java/net/mcreator/radioactive/procedures/RadiationBarDisplayOverlayIngameProcedure.java"
         ],
@@ -932,20 +951,11 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
-        ]
-      },
-      "path": "~/utility"
-    },
-    {
-      "name": "RadiationBar",
-      "type": "overlay",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "radiation_bar",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/radioactive/client/screens/RadiationBarOverlay.java"
         ]
       },
       "path": "~/utility"
@@ -1011,6 +1021,10 @@
           {
             "name": "amount",
             "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -1030,6 +1044,10 @@
           {
             "name": "arguments",
             "type": "cmdcontext"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -1049,6 +1067,10 @@
           {
             "name": "arguments",
             "type": "cmdcontext"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -1081,6 +1103,10 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -1100,6 +1126,10 @@
           {
             "name": "arguments",
             "type": "cmdcontext"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -1168,6 +1198,10 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -1416,6 +1450,10 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -1519,6 +1557,131 @@
         ]
       },
       "path": "~/tooltips"
+    },
+    {
+      "name": "GetRadiationProtectionOf",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_radiation_protection_of",
+      "metadata": {
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/GetRadiationProtectionOfProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/utility"
+    },
+    {
+      "name": "ShowTooltips",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "show_tooltips",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/ShowTooltipsProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "tooltip",
+            "type": "tooltip"
+          }
+        ]
+      },
+      "path": "~/tooltips"
+    },
+    {
+      "name": "RenderRadBar",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "render_rad_bar",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/RenderRadBarProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/utility"
+    },
+    {
+      "name": "Lerp2Colours",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "lerp_2_colours",
+      "metadata": {
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/Lerp2ColoursProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "col1",
+            "type": "number"
+          },
+          {
+            "name": "col2",
+            "type": "number"
+          },
+          {
+            "name": "factor",
+            "type": "number"
+          }
+        ]
+      },
+      "path": "~/utility"
+    },
+    {
+      "name": "Lerp3Colours",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "lerp_3_colours",
+      "metadata": {
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/radioactive/procedures/Lerp3ColoursProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "col1",
+            "type": "number"
+          },
+          {
+            "name": "col2",
+            "type": "number"
+          },
+          {
+            "name": "col3",
+            "type": "number"
+          },
+          {
+            "name": "factor",
+            "type": "number"
+          }
+        ]
+      },
+      "path": "~/utility"
     }
   ],
   "variable_elements": [
@@ -1629,6 +1792,210 @@
       "type": "datamap",
       "scope": "map",
       "value": "new CompoundTag()"
+    },
+    {
+      "name": "loaded__old_sys",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "loaded__opr",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "loaded__radmult",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "loaded__deconmult",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "loaded__effectmult",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "loaded__sickmult",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "v3_loaded__enabled_inv",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "v3_loaded__enabled_prox",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "v3_loaded__enabled_block",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "v3_loaded__enabled_biome",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "v3_loaded__enabled_cure",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "v3_loaded__shut_fuk",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "v3_loaded__radimmunity",
+      "type": "datamap",
+      "scope": "map",
+      "value": "new CompoundTag()"
+    },
+    {
+      "name": "loaded__base_res",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "loaded__max_res",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "loaded__res_mult",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "loaded__resist_decon",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "loaded__enable_rad_damage",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "loaded__enable_unrad_damage",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "v3_loaded__is_v3",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "client_radiation",
+      "type": "number",
+      "scope": "global",
+      "value": "0"
+    },
+    {
+      "name": "loaded__bar_width",
+      "type": "number",
+      "scope": "global",
+      "value": "0"
+    },
+    {
+      "name": "loaded__bar_height",
+      "type": "number",
+      "scope": "global",
+      "value": "0"
+    },
+    {
+      "name": "loaded__bar_x",
+      "type": "number",
+      "scope": "global",
+      "value": "0"
+    },
+    {
+      "name": "loaded__bar_y",
+      "type": "number",
+      "scope": "global",
+      "value": "0"
+    },
+    {
+      "name": "loaded__bar_enabled",
+      "type": "logic",
+      "scope": "global",
+      "value": "false"
+    },
+    {
+      "name": "loaded__shut_up_counters",
+      "type": "logic",
+      "scope": "global",
+      "value": "false"
+    },
+    {
+      "name": "loaded__click_rate",
+      "type": "number",
+      "scope": "global",
+      "value": "0"
+    },
+    {
+      "name": "loaded__click_pitch",
+      "type": "number",
+      "scope": "global",
+      "value": "0"
+    },
+    {
+      "name": "loaded__show_tooltips",
+      "type": "logic",
+      "scope": "global",
+      "value": "false"
+    },
+    {
+      "name": "loaded__radbar_bg",
+      "type": "logic",
+      "scope": "global",
+      "value": "false"
+    },
+    {
+      "name": "loaded__radbar_texture",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "loaded__radbar_bg_texture",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "client_show_bar",
+      "type": "logic",
+      "scope": "global",
+      "value": "false"
     }
   ],
   "sound_elements": [
@@ -1718,13 +2085,13 @@
   "workspaceSettings": {
     "modid": "radioactive",
     "modName": "Radioactive",
-    "version": "3.7.0",
+    "version": "3.8.0",
     "description": "Easy-to-use unified radiation system which allows all mods and datapacks in a modpack to use the same system of radiation.",
     "author": "LightningLaser8",
     "websiteURL": "https://www.curseforge.com/minecraft/mc-mods/radioactive-ll8",
     "license": "All Rights Reserved",
     "serverSideOnly": false,
-    "modPicture": "radioactive_title",
+    "modPicture": "radioactive_title_even_better",
     "requiredMods": [],
     "dependencies": [],
     "dependants": [],

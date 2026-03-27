@@ -11,7 +11,7 @@ public class RadiationSicknessOnEffectActiveTickProcedure {
 	public static void execute(LevelAccessor world, Entity entity, double amplifier) {
 		if (entity == null)
 			return;
-		if (RadiationSicknessActiveTickConditionProcedure.execute(entity, amplifier)) {
+		if (RadiationSicknessActiveTickConditionProcedure.execute(world, entity, amplifier)) {
 			entity.hurt(new DamageSource(world.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation("radioactive:radiation_dt")))), 1);
 		}
 	}

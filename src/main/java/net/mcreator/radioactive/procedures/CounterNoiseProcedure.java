@@ -13,7 +13,6 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.resources.ResourceLocation;
 
 import net.mcreator.radioactive.network.RadioactiveModVariables;
-import net.mcreator.radioactive.configuration.RadioactiveClientConfiguration;
 
 import javax.annotation.Nullable;
 
@@ -34,12 +33,12 @@ public class CounterNoiseProcedure {
 		if (entity == null)
 			return;
 		if (world.isClientSide()) {
-			if (RadiationBarDisplayOverlayIngameProcedure.execute(world, entity) && !RadioactiveClientConfiguration.SHUT_UP.get()
-					&& (entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RadioactiveModVariables.PlayerVariables())).rads_per_sec > 0 && world.getLevelData().getGameTime() % Math.round(75000
-							/ ((double) RadioactiveClientConfiguration.CLICK_RATE.get() * (entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RadioactiveModVariables.PlayerVariables())).rads_per_sec)) == 0) {
+			if (RadioactiveModVariables.client_show_bar && !RadioactiveModVariables.loaded__shut_up_counters
+					&& (entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RadioactiveModVariables.PlayerVariables())).rads_per_sec > 0 && world.getLevelData().getGameTime() % Math
+							.round(35000 / (RadioactiveModVariables.loaded__click_rate * (entity.getCapability(RadioactiveModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RadioactiveModVariables.PlayerVariables())).rads_per_sec)) == 0) {
 				if (world instanceof Level _level) {
 					if (_level.isClientSide()) {
-						_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("radioactive:geiger_click")), SoundSource.NEUTRAL, 1, (float) (double) RadioactiveClientConfiguration.CLICK_PITCH.get(), false);
+						_level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("radioactive:geiger_click")), SoundSource.NEUTRAL, 1, (float) RadioactiveModVariables.loaded__click_pitch, false);
 					}
 				}
 			}
